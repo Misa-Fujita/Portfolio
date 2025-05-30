@@ -99,9 +99,9 @@
     new Typed('.typed', {
       strings: typed_strings,
       loop: true,
-      typeSpeed: 60,
-      backSpeed: 40,
-      backDelay: 2000
+      typeSpeed: 80,
+      backSpeed: 50,
+      backDelay: 1000
     });
   }
 
