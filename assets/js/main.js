@@ -100,7 +100,7 @@
       strings: typed_strings,
       loop: true,
       typeSpeed: 50,
-      backSpeed: 20,
+      backSpeed: 5,
       backDelay: 100,
     });
   }
