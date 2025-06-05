@@ -289,7 +289,7 @@ h6 {
 }
 
 .footer h3 {
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
   position: relative;
   padding: 0;
@@ -298,7 +298,7 @@ h6 {
 
 .footer p {
   font-size: 15;
-  font-style: italic;
+  /* font-style: italic; */
   padding: 0;
   margin: 0 0 30px 0;
 }
@@ -334,7 +334,7 @@ h6 {
 }
 
 .footer .credits {
-  font-size: 13px;
+  font-size: 12px;
   padding-top: 5px;
 }
 
@@ -475,7 +475,7 @@ section,
 }
 
 .section-title h2 {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 700;
   margin-bottom: 20px;
   padding-bottom: 20px;
@@ -537,7 +537,7 @@ section,
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
+  background: color-mix(in srgb, var(--background-color), transparent 50%);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -873,7 +873,7 @@ section,
 .services .service-item .icon {
   margin: 0 auto;
   width: 200px;
-  height: 200px;
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -881,11 +881,11 @@ section,
   position: relative;
 }
 
-.services .service-item .icon i {
+/* .services .service-item .icon i {
   font-size: 36px;
   transition: 0.5s;
   position: relative;
-}
+} */
 
 /* .services .service-item .icon svg {
   position: absolute;
