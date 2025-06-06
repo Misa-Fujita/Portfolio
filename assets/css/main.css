@@ -596,7 +596,7 @@ section,
 --------------------------------------------------------------*/
 .about .content h2 {
   font-weight: 700;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .about .content ul {
@@ -615,7 +615,7 @@ section,
 }
 
 .about .content ul i {
-  font-size: 14px;
+  font-size: 12px;
   margin-right: 5px;
   color: var(--accent-color);
   line-height: 0;
