@@ -227,3 +227,15 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+window.addEventListener('scroll', function () {
+  const scrollElement = document.querySelector('.scrolldown');
+  const hero = document.querySelector('#hero');
+  const heroBottom = hero.getBoundingClientRect().bottom;
+
+  if (heroBottom < 0) {
+    scrollElement.style.display = 'none';
+  } else {
+    scrollElement.style.display = 'block';
+  }
+});
