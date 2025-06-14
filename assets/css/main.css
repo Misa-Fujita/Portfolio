@@ -538,10 +538,6 @@ section,
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
-    height: 40px;
-    width: 2px;
-    background: #333;
-    box-sizing: border-box;
     z-index: 3;
 }
 
