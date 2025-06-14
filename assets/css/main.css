@@ -533,6 +533,15 @@ section,
   color: var(--accent-color);
 }
 
+.scrolldown {
+  position: absolute;
+  bottom: -9.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 16rem;
+  box-sizing: border-box;
+}    
+
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 32px;
