@@ -539,6 +539,7 @@ section,
     bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
+    color: #333;
     height: 40px;
     width: 2px;
     background: #333;
