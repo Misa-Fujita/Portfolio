@@ -533,14 +533,26 @@ section,
   color: var(--accent-color);
 }
 
-.scrolldown {
-  position: absolute;
-  bottom: -9.4rem;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-bottom: 16rem;
-  box-sizing: border-box;
-}    
+.scrolldown::before {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 20px;
+  background: #000;
+  margin: 0 auto;
+}
+
+.scrolldown::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  transform: rotate(45deg);
+  margin: 10px auto 0;
+  animation: bounce 2s infinite;
+}   
 
 @media (max-width: 768px) {
   .hero h2 {
