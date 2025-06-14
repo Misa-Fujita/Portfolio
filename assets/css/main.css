@@ -534,12 +534,16 @@ section,
 }
 
 .hero .scrolldown::before {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  padding-bottom: 16rem;
-  box-sizing: border-box;
+    content: '';
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 40px;
+    width: 2px;
+    background: #333;
+    box-sizing: border-box;
+    z-index: 999;
 }
 
 .hero .scrolldown::after {
