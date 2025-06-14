@@ -533,8 +533,7 @@ section,
   color: var(--accent-color);
 }
 
-.hero .scrolldown::before {
-    content: '';
+.hero .scrolldown {
     position: fixed;
     bottom: 2rem;
     left: 50%;
