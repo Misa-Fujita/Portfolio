@@ -212,33 +212,49 @@
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
             <li data-filter="*" class="filter-active">All</li>
             <li data-filter=".filter-app">Creative Direction</li>
-            <li data-filter=".filter-product">Web</li>
-            <li data-filter=".filter-branding">Flyer</li>
-            <li data-filter=".filter-branding">Illustration</li>
-            <li data-filter=".filter-branding">Package</li>
-            <li data-filter=".filter-branding">SNS</li>
+            <li data-filter=".filter-flyer">Flyer</li>
+            <li data-filter=".filter-illustration">Illustration</li>
+            <li data-filter=".filter-package">Package</li>
+            <li data-filter=".filter-sns">SNS</li>
           </ul>
         </div>
         <!-- End Portfolio Filters -->
 
-        <!-- Portfolio Container -->
-        <div class="container">
-            <!-- Portfolio Item -->            
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" style="position: absolute; left: 0px; top: 0px;">
-                <div class="portfolio-content h-100">
-                  <img src="assets/img/masonry-portfolio/masonry-portfolio-02.jpg" class="img-fluid" alt="">
-                  <div class="portfolio-info">
-                    <h4>Creative Direction</h4>
-                    <a href="portfolio-details-01.html" title="More Details" class="details-link">
-                      <i class="bi bi-arrow-right-circle"></i>
-                    </a>
-                  </div>
+        <!-- Portfolio Filters & Items Layout -->
+        <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <!-- Filters -->
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-app">Creative Direction</li>
+            <li data-filter=".filter-web">Web</li>
+            <li data-filter=".filter-flyer">Flyer</li>
+            <li data-filter=".filter-illustration">Illustration</li>
+            <li data-filter=".filter-package">Package</li>
+            <li data-filter=".filter-sns">SNS</li>
+          </ul>
+          <!-- End Filters -->
+
+          <!-- Portfolio Container -->
+          <div class="row gy-4 isotope-container">
+            <!-- Portfolio Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <div class="portfolio-content h-100">
+                <img src="assets/img/masonry-portfolio/masonry-portfolio-02.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <h4>Creative Direction</h4>
+                  <a href="portfolio-details-01.html" title="More Details" class="details-link">
+                    <i class="bi bi-arrow-right-circle"></i>
+                  </a>
                 </div>
+              </div>
             </div>
             <!-- End Portfolio Item -->
-        </div>
-        <!-- End Portfolio Container -->
+          </div>
+          <!-- End Portfolio Container -->
       </div>
+      <!-- End Isotope Layout -->
+
     </section>
     <!-- End Portfolio Section -->
 
