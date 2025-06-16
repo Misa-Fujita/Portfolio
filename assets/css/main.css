@@ -746,12 +746,17 @@ section,
   padding-right: 50px;
 }
 
-.portfolio .portfolio-item .portfolio-info p {
+.portfolio .portfolio-item:hover .portfolio-info {
+  opacity: 1;
+  bottom: 0;
+}
+
+/* .portfolio .portfolio-item .portfolio-info p {
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   font-size: 14px;
   margin-bottom: 0;
   padding-right: 50px;
-}
+} */
 
 /* Add over ray */
 .portfolio-content::after {
@@ -771,7 +776,34 @@ section,
   background: rgba(0, 0, 0, 0.4); /* Becomes 40% black */
 }
 
-.portfolio .portfolio-item .portfolio-info .preview-link,
+/* Putting navigation onto image */
+.hover-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.hover-overlay i {
+  font-size: 20px;
+}
+
+.portfolio-content:hover .hover-overlay {
+  opacity: 1;
+}
+
+/* .portfolio .portfolio-item .portfolio-info .preview-link,
 .portfolio .portfolio-item .portfolio-info .details-link {
   position: absolute;
   right: 50px;
@@ -780,22 +812,17 @@ section,
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   transition: 0.3s;
   line-height: 0;
-}
+} */
 
-.portfolio .portfolio-item .portfolio-info .preview-link:hover,
+/* .portfolio .portfolio-item .portfolio-info .preview-link:hover,
 .portfolio .portfolio-item .portfolio-info .details-link:hover {
   color: var(--accent-color);
-}
+} */
 
-.portfolio .portfolio-item .portfolio-info .details-link {
+/* .portfolio .portfolio-item .portfolio-info .details-link {
   right: 14px;
   font-size: 28px;
-}
-
-.portfolio .portfolio-item:hover .portfolio-info {
-  opacity: 1;
-  bottom: 0;
-}
+} */
 
 
 /*--------------------------------------------------------------
