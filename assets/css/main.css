@@ -741,8 +741,8 @@ section,
 }
 
 .portfolio .portfolio-item .portfolio-info h4 {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   /* padding-right: 50px; */
 }
 
@@ -791,7 +791,7 @@ section,
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
+  font-size: 16px;
   text-decoration: none;
   z-index: 10;
 }
