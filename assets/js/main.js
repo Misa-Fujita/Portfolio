@@ -212,6 +212,24 @@
   });
 
   /**
+   * Portfolio Items
+   */
+$(window).on('load', function () {
+  var $grid = $('.isotope-container');
+
+  $grid.imagesLoaded(function () {
+    $grid.isotope({
+      itemSelector: '.portfolio-item',
+      layoutMode: 'masonry',
+      percentPosition: true,
+      masonry: {
+        columnWidth: '.portfolio-item'
+      }
+    });
+  });
+});
+
+  /**
    * Navmenu Scrollspy
    */
   let navmenulinks = document.querySelectorAll('.navmenu a');
