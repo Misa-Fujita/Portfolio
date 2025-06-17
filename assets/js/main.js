@@ -212,13 +212,14 @@
   });
 
   /**
-   * Portfolio Items
-   */
-$(window).on('load', function () {
-  var $grid = $('.isotope-container');
+  * Portfolio Items (Vanilla JS + Isotope + imagesLoaded)
+  */
+window.addEventListener('load', function () {
+  const grid = document.querySelector('.isotope-container');
+  if (!grid) return;
 
-  $grid.imagesLoaded(function () {
-    $grid.isotope({
+  imagesLoaded(grid, function () {
+    new Isotope(grid, {
       itemSelector: '.portfolio-item',
       layoutMode: 'masonry',
       percentPosition: true,
