@@ -782,7 +782,7 @@ section,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--accent-color);
   color: white;
   padding: 12px 20px;
   border-radius: 8px;
