@@ -751,12 +751,11 @@ section,
   bottom: 0;
 }
 
-/* .portfolio .portfolio-item .portfolio-info p {
+.portfolio .portfolio-item .portfolio-info p {
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 0;
-  padding-right: 50px;
-} */
+}
 
 /* Add over ray */
 .portfolio-content::after {
