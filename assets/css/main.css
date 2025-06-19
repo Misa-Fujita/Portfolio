@@ -751,6 +751,13 @@ section,
   bottom: 0;
 }
 
+.portfolio .portfolio-item .portfolio-subtitle {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--default-color);
+}
+
+
 .portfolio .portfolio-item .portfolio-info p {
   color: color-mix(in srgb, var(--default-color), transparent 30%);
   font-size: 8px;
