@@ -753,7 +753,7 @@ section,
 
 .portfolio .portfolio-item .portfolio-info p {
   color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 12px;
+  font-size: 10px;
   margin-bottom: 0;
 }
 
