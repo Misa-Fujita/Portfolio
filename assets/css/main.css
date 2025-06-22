@@ -1,1476 +1,645 @@
-/**
-* Template Name: MyResume
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Updated: Jun 29 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
-/* Fonts */
-:root {
-  --default-font: "Lato",  system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Lato",  "Noto Sans", sans-serif;
-  --nav-font: "Poppins",  "Noto Sans", sans-serif;
-}
-
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #45505b; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #159783; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
-
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
-:root {
-  --nav-color: #45505b;  /* The default color of the main navmenu links */
-  --nav-hover-color: #159783; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #159783; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
-}
-
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
-.light-background {
-  --background-color: #f9f9f9;
-  --surface-color: #ffffff;
-}
-
-.dark-background {
-  --background-color: #060606;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #252525;
-  --contrast-color: #ffffff;
-}
-
-/* Smooth scroll */
-:root {
-  scroll-behavior: smooth;
-}
-
-/*--------------------------------------------------------------
-# General Styling & Shared Classes
---------------------------------------------------------------*/
-body {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-family: var(--default-font);
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
-  text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--heading-color);
-  font-family: var(--heading-font);
-}
-
-em {
-  font-style: normal;
-}
-
-/*--------------------------------------------------------------
-# Global Header
---------------------------------------------------------------*/
-.header {
-  color: var(--default-color);
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  padding: 0 15px;
-  transition: all ease-in-out 0.3s;
-  overflow-y: auto;
-  z-index: 997;
-  min-width: 200px;
-}
-
-@media (max-width: 1199px) {
-  .header {
-    background-color: var(--background-color);
-    border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    width: 300px;
-    left: -100%;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1600px) {
-  .header~main {
-    margin-left: 160px;
-  }
-
-  .header~main .hero {
-    margin-left: -160px;
-    width: 100vw;
-  }
-}
-
-.header.header-show {
-  left: 0;
-}
-
-.header .header-toggle {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-  font-size: 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  z-index: 9999;
-  transition: background-color 0.3s;
-}
-
-.header .header-toggle:hover {
-  color: var(--contrast-color);
-  background-color: color-mix(in srgb, var(--accent-color) 90%, white 15%);
-}
-
-/*--------------------------------------------------------------
-# Navigation Menu
---------------------------------------------------------------*/
-.navmenu {
-  padding: 0;
-  z-index: 9997;
-}
-
-.navmenu ul {
-  list-style: none;
-  padding: 0 0 20px 0;
-  margin: 0;
-  width: 140px;
-}
-
-.navmenu a,
-.navmenu a:focus {
-  color: var(--nav-color);
-  font-family: var(--nav-font);
-  display: flex;
-  align-items: center;
-  padding: 10px 18px;
-  margin-bottom: 8px;
-  font-size: 15px;
-  border-radius: 50px;
-  background: color-mix(in srgb, var(--default-color), transparent 92%);
-  height: 56px;
-  width: 100%;
-  overflow: hidden;
-  transition: 0.3s;
-}
-
-.navmenu a i,
-.navmenu a:focus i {
-  font-size: 20px;
-}
-
-.navmenu a span,
-.navmenu a:focus span {
-  padding: 0 5px 0 7px;
-}
-
-@media (min-width: 992px) {
-
-  .navmenu a,
-  .navmenu a:focus {
-    max-width: 56px;
-  }
-
-  .navmenu a span,
-  .navmenu a:focus span {
-    display: none;
-  }
-}
-
-.navmenu a:hover,
-.navmenu .active,
-.navmenu .active:focus,
-.navmenu li:hover>a {
-  color: var(--contrast-color);
-  background: var(--nav-hover-color);
-}
-
-.navmenu a:hover,
-.navmenu li:hover>a {
-  max-width: 100%;
-  color: var(--contrast-color);
-}
-
-.navmenu a:hover span,
-.navmenu li:hover>a span {
-  display: block;
-}
-
-/*--------------------------------------------------------------
-# Global Footer
---------------------------------------------------------------*/
-.footer {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-size: 14px;
-  text-align: center;
-  padding: 30px 0;
-  position: relative;
-}
-
-.footer h3 {
-  font-size: 30px;
-  font-weight: 700;
-  position: relative;
-  padding: 0;
-  margin: 0 0 15px 0;
-}
-
-.footer p {
-  font-size: 15;
-  /* font-style: italic; */
-  padding: 0;
-  margin: 0 0 30px 0;
-}
-
-.footer .social-links {
-  margin: 0 0 30px 0;
-}
-
-.footer .social-links a {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  line-height: 1;
-  margin: 0 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-}
-
-.footer .social-links a:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-  text-decoration: none;
-}
-
-.footer .copyright {
-  padding-top: 25px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.footer .credits {
-  font-size: 10px;
-  padding-top: 5px;
-}
-
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 999999;
-  overflow: hidden;
-  background: var(--background-color);
-  transition: all 0.6s ease-out;
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
-}
-
-@keyframes animate-preloader {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/*--------------------------------------------------------------
-# Scroll Top Button
---------------------------------------------------------------*/
-.scroll-top {
-  position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: -15px;
-  z-index: 99999;
-  background-color: var(--accent-color);
-  width: 44px;
-  height: 44px;
-  border-radius: 50px;
-  transition: all 0.4s;
-}
-
-.scroll-top i {
-  font-size: 24px;
-  color: var(--contrast-color);
-  line-height: 0;
-}
-
-.scroll-top:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
-  color: var(--contrast-color);
-}
-
-.scroll-top.active {
-  visibility: visible;
-  opacity: 1;
-  bottom: 15px;
-}
-
-/*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
-  [data-aos-delay] {
-    transition-delay: 0 !important;
-  }
-}
-
-/*--------------------------------------------------------------
-# Global Page Titles & Breadcrumbs
---------------------------------------------------------------*/
-.page-title {
-  --background-color: color-mix(in srgb, var(--default-color), transparent 96%);
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 20px 0;
-  position: relative;
-}
-
-.page-title h1 {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 0;
-}
-
-.page-title .breadcrumbs ol {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  padding: 0 0 10px 0;
-  margin: 0;
-  font-size: 14px;
-  font-weight: 400;
-}
-
-.page-title .breadcrumbs ol li+li {
-  padding-left: 10px;
-}
-
-.page-title .breadcrumbs ol li+li::before {
-  content: "/";
-  display: inline-block;
-  padding-right: 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
-/*--------------------------------------------------------------
-# Global Sections
---------------------------------------------------------------*/
-section,
-.section {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 60px 0;
-  overflow: clip;
-}
-
-/*--------------------------------------------------------------
-# Global Section Titles
---------------------------------------------------------------*/
-.section-title {
-  text-align: center;
-  padding-bottom: 60px;
-  position: relative;
-}
-
-.section-title h2 {
-  font-size: 30px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
-}
-
-.section-title h2:before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 160px;
-  height: 1px;
-  background: color-mix(in srgb, var(--default-color), transparent 60%);
-  left: 0;
-  right: 0;
-  bottom: 1px;
-  margin: auto;
-}
-
-.section-title h2::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: var(--accent-color);
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-}
-
-.section-title p {
-  margin-bottom: 0;
-}
-
-/*--------------------------------------------------------------
-# Hero Section
---------------------------------------------------------------*/
-.hero {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  padding: 80px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.hero:before {
-  content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 50%);
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 3;
-}
-
-.hero h2 {
-  margin: 0;
-  font-size: 50px;
-  font-weight: 600;
-}
-
-.hero p {
-  margin: 5px 0 0 0;
-  font-size: 26px;
-}
-
-.hero p span {
-  letter-spacing: 1px;
-  border-bottom: 2px solid var(--accent-color);
-}
-
-.hero .social-links {
-  margin-top: 25px;
-}
-
-.hero .social-links a {
-  font-size: 20px;
-  display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  line-height: 1;
-  margin-right: 20px;
-  transition: 0.3s;
-}
-
-.hero .social-links a:hover {
-  color: var(--accent-color);
-}
-
-.hero .scrolldown {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-}
-
-.hero .scrolldown::after {
-  content: '';
-  display: block;
-  width: 10px;
-  height: 10px;
-  border-right: 2px solid #333;
-  border-bottom: 2px solid #333;
-  transform: rotate(45deg);
-  margin: 10px auto 0;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0) rotate(45deg);
-  }
-  50% {
-    transform: translateY(8px) rotate(45deg);
-  }
-}
-
-@media (max-width: 768px) {
-  .hero h2 {
-    font-size: 32px;
-  }
-
-  .hero p {
-    font-size: 20px;
-  }
-}
-
-/*--------------------------------------------------------------
-# About Section
---------------------------------------------------------------*/
-.about .content h2 {
-  font-weight: 700;
-  font-size: 22px;
-}
-
-.about .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about .content ul li {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-}
-
-.about .content ul strong {
-  margin-right: 10px;
-}
-
-.about .content ul i {
-  font-size: 12px;
-  margin-right: 5px;
-  color: var(--accent-color);
-  line-height: 0;
-}
-
-/*--------------------------------------------------------------
-# Stats Section
---------------------------------------------------------------*/
-.stats i {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  width: 54px;
-  height: 54px;
-  font-size: 24px;
-  border-radius: 50px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-}
-
-.stats .stats-item {
-  margin-top: 10px;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  z-index: 0;
-}
-
-.stats .stats-item span {
-  font-size: 36px;
-  display: block;
-  font-weight: 700;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-}
-
-.stats .stats-item p {
-  padding: 0;
-  margin: 0;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 16px;
-}
-
-/*--------------------------------------------------------------
-# Skills Section
---------------------------------------------------------------*/
-.skills .progress {
-  height: 60px;
-  display: block;
-  background: none;
-  border-radius: 0;
-}
-
-.skills .progress .skill {
-  color: var(--heading-color);
-  padding: 0;
-  margin: 0 0 6px 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: var(--heading-font);
-}
-
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
-}
-
-.skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
-}
-
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Portfolio Section
---------------------------------------------------------------*/
-.portfolio .portfolio-filters {
-  padding: 0;
-  margin: 0 auto 20px auto;
-  list-style: none;
-  text-align: center;
-}
-
-.portfolio .portfolio-filters li {
-  cursor: pointer;
-  display: inline-block;
-  padding: 8px 20px 10px 20px;
-  margin: 0;
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1;
-  margin-bottom: 5px;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
-  font-family: var(--heading-font);
-}
-
-.portfolio .portfolio-filters li:hover,
-.portfolio .portfolio-filters li.filter-active {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-}
-
-.portfolio .portfolio-filters li:first-child {
-  margin-left: 0;
-}
-
-.portfolio .portfolio-filters li:last-child {
-  margin-right: 0;
-}
-
-@media (max-width: 575px) {
-  .portfolio .portfolio-filters li {
-    font-size: 14px;
-    margin: 0 0 10px 0;
-  }
-}
-
-.portfolio .portfolio-item {
-  position: relative;
-  overflow: hidden;
-}
-
-.portfolio .portfolio-item .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  bottom: -100%;
-  z-index: 3;
-  transition: all ease-in-out 0.5s;
-  background: color-mix(in srgb, var(--background-color), transparent 20%);
-  padding: 15px;
-}
-
-.portfolio .portfolio-item .portfolio-info h4 {
-  font-size: 16px;
-  font-weight: 500;
-  /* padding-right: 50px; */
-}
-
-.portfolio .portfolio-item:hover .portfolio-info {
-  opacity: 1;
-  bottom: 0;
-}
-
-.portfolio .portfolio-item .portfolio-subtitle {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--heading-color);
-}
-
-
-.portfolio .portfolio-item .portfolio-info p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-size: 8px;
-  margin-bottom: 0;
-}
-
-/* Add over ray */
-.portfolio-content::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0); /* Initially transparent */
-  transition: background-color 0.3s ease;
-  z-index: 2;
-}
-
-/* Darken on hover */
-.portfolio-content:hover::after {
-  background: rgba(0, 0, 0, 0.4); /* Becomes 40% black */
-}
-
-/* Putting navigation onto image */
-.hover-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--accent-color);
-  color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
-  opacity: 0;
-  transition: 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  text-decoration: none;
-  z-index: 10;
-}
-
-.hover-overlay i {
-  font-size: 18px;
-}
-
-.portfolio-content:hover .hover-overlay {
-  opacity: 1;
-}
-
-/* .portfolio .portfolio-item .portfolio-info .preview-link,
-.portfolio .portfolio-item .portfolio-info .details-link {
-  position: absolute;
-  right: 50px;
-  font-size: 24px;
-  top: calc(50% - 14px);
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  transition: 0.3s;
-  line-height: 0;
-} */
-
-/* .portfolio .portfolio-item .portfolio-info .preview-link:hover,
-.portfolio .portfolio-item .portfolio-info .details-link:hover {
-  color: var(--accent-color);
-} */
-
-/* .portfolio .portfolio-item .portfolio-info .details-link {
-  right: 14px;
-  font-size: 28px;
-} */
-
-
-/*--------------------------------------------------------------
-# Resume Section
---------------------------------------------------------------*/
-.resume .resume-title {
-  color: var(--heading-color);
-  font-size: 22px;
-  font-weight: 600;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.resume .resume-item {
-  padding: 0 0 20px 20px;
-  margin-top: -2px;
-  border-left: 2px solid var(--accent-color);
-  position: relative;
-}
-
-.resume .resume-item h4 {
-  line-height: 18px;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  margin-bottom: 10px;
-}
-
-.resume .resume-item h5 {
-  font-size: 16px;
-  padding: 5px 15px;
-  display: inline-block;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.resume .resume-item ul {
-  padding-left: 20px;
-}
-
-.resume .resume-item ul li {
-  padding-bottom: 10px;
-}
-
-.resume .resume-item:last-child {
-  padding-bottom: 0;
-}
-
-.resume .resume-item::before {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  border-radius: 50px;
-  left: -9px;
-  top: 0;
-  background: var(--background-color);
-  border: 2px solid var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Services Section
---------------------------------------------------------------*/
-.services .service-item {
-  background-color: var(--surface-color);
-  box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
-  height: 100%;
-  padding: 60px 30px;
-  text-align: center;
-  transition: 0.3s;
-  border-radius: 5px;
-}
-
-.services .service-item .icon {
-  margin: 0 auto;
-  /* width: 200px;
-  height: auto; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: ease-in-out 0.3s;
-  position: relative;
-}
-
-.services .service-item h3 {
-  font-weight: 500;
-  margin: 10px 0 15px 0;
-  font-size: 18px;
-}
-
-.services .service-item p {
-  line-height: 28px;
-  font-size: 16px;
-  margin-bottom: 0;
-}
-
-.services .service-item:hover {
-  box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.1);
-}
-
-.services .service-item.item-cyan i {
-  color: #0dcaf0;
-}
-
-.services .service-item.item-cyan:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-cyan:hover .icon path {
-  fill: #0dcaf0;
-}
-
-.services .service-item.item-orange i {
-  color: #fd7e14;
-}
-
-.services .service-item.item-orange:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-orange:hover .icon path {
-  fill: #fd7e14;
-}
-
-.services .service-item.item-teal i {
-  color: #20c997;
-}
-
-.services .service-item.item-teal:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-teal:hover .icon path {
-  fill: #20c997;
-}
-
-.services .service-item.item-red i {
-  color: #df1529;
-}
-
-.services .service-item.item-red:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-red:hover .icon path {
-  fill: #df1529;
-}
-
-.services .service-item.item-indigo i {
-  color: #6610f2;
-}
-
-.services .service-item.item-indigo:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-indigo:hover .icon path {
-  fill: #6610f2;
-}
-
-.services .service-item.item-pink i {
-  color: #f3268c;
-}
-
-.services .service-item.item-pink:hover .icon i {
-  color: #fff;
-}
-
-.services .service-item.item-pink:hover .icon path {
-  fill: #f3268c;
-}
-
-/*--------------------------------------------------------------
-# Testimonials Section
---------------------------------------------------------------*/
-.testimonials .testimonials-carousel,
-.testimonials .testimonials-slider {
-  overflow: hidden;
-}
-
-.testimonials .testimonial-item .testimonial-content {
-  border-left: 3px solid var(--accent-color);
-  padding-left: 30px;
-}
-
-.testimonials .testimonial-item .testimonial-img {
-  border-radius: 50%;
-  border: 4px solid var(--background-color);
-  margin: 0 auto;
-}
-
-.testimonials .testimonial-item h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-}
-
-.testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  margin: 0 0 10px 0;
-}
-
-.testimonials .testimonial-item .stars i {
-  color: #ffc107;
-  margin: 0 1px;
-}
-
-.testimonials .testimonial-item .quote-icon-left,
-.testimonials .testimonial-item .quote-icon-right {
-  color: color-mix(in srgb, var(--accent-color), transparent 50%);
-  font-size: 26px;
-  line-height: 0;
-}
-
-.testimonials .testimonial-item .quote-icon-left {
-  display: inline-block;
-  left: -5px;
-  position: relative;
-}
-
-.testimonials .testimonial-item .quote-icon-right {
-  display: inline-block;
-  right: -5px;
-  position: relative;
-  top: 10px;
-  transform: scale(-1, -1);
-}
-
-.testimonials .testimonial-item p {
-  font-style: italic;
-}
-
-.testimonials .swiper-wrapper {
-  height: auto;
-}
-
-.testimonials .swiper-pagination {
-  margin-top: 30px;
-  position: relative;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
-  opacity: 1;
-}
-
-.testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Contact Section
---------------------------------------------------------------*/
-.contact .info-item+.info-item {
-  margin-top: 40px;
-}
-
-.contact .info-item i {
-  color: var(--accent-color);
-  background: color-mix(in srgb, var(--accent-color), transparent 92%);
-  font-size: 20px;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
-  margin-right: 15px;
-}
-
-.contact .info-item h3 {
-  padding: 0;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 5px;
-}
-
-.contact .info-item p {
-  padding: 0;
-  margin-bottom: 0;
-  font-size: 14px;
-}
-
-.contact .info-item:hover i {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.contact .php-email-form {
-  height: 100%;
-}
-
-.contact .php-email-form input[type=text],
-.contact .php-email-form input[type=email],
-.contact .php-email-form textarea {
-  font-size: 14px;
-  padding: 10px 15px;
-  box-shadow: none;
-  border-radius: 0;
-  color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
-  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
-}
-
-.contact .php-email-form input[type=text]:focus,
-.contact .php-email-form input[type=email]:focus,
-.contact .php-email-form textarea:focus {
-  border-color: var(--accent-color);
-}
-
-.contact .php-email-form input[type=text]::placeholder,
-.contact .php-email-form input[type=email]::placeholder,
-.contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
-.contact .php-email-form button[type=submit] {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  border: 0;
-  padding: 10px 30px;
-  transition: 0.4s;
-  border-radius: 50px;
-}
-
-.contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 25%);
-}
-
-/*--------------------------------------------------------------
-# Portfolio Details Section
---------------------------------------------------------------*/
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
-
-.portfolio-details .swiper-wrapper {
-  height: auto;
-}
-
-.portfolio-details .swiper-button-prev,
-.portfolio-details .swiper-button-next {
-  width: 48px;
-  height: 48px;
-}
-
-.portfolio-details .swiper-button-prev:after,
-.portfolio-details .swiper-button-next:after {
-  color: rgba(255, 255, 255, 0.8);
-  background-color: rgba(0, 0, 0, 0.15);
-  font-size: 24px;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
-}
-
-.portfolio-details .swiper-button-prev:hover:after,
-.portfolio-details .swiper-button-next:hover:after {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 575px) {
-
-  .portfolio-details .swiper-button-prev,
-  .portfolio-details .swiper-button-next {
-    display: none;
-  }
-}
-
-.portfolio-details .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details .swiper-pagination .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
-  opacity: 1;
-}
-
-.portfolio-details .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  position: relative;
-}
-
-.portfolio-details .portfolio-info h3:after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 3px;
-  background: var(--accent-color);
-  left: 0;
-  bottom: 0;
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 15px;
-}
-
-.portfolio-details .portfolio-info ul strong {
-  text-transform: uppercase;
-  font-weight: 400;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 14px;
-}
-
-.portfolio-details .portfolio-info .btn-visit {
-  padding: 8px 40px;
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  border-radius: 50px;
-  transition: 0.3s;
-}
-
-.portfolio-details .portfolio-info .btn-visit:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
-.portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-description p {
-  padding: 0;
-}
-
-.portfolio-details .portfolio-description .testimonial-item {
-  padding: 30px 30px 0 30px;
-  position: relative;
-  background: color-mix(in srgb, var(--default-color), transparent 97%);
-  margin-bottom: 50px;
-}
-
-.portfolio-details .portfolio-description .testimonial-item .testimonial-img {
-  width: 90px;
-  border-radius: 50px;
-  border: 6px solid var(--background-color);
-  float: left;
-  margin: 0 10px 0 0;
-}
-
-.portfolio-details .portfolio-description .testimonial-item h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 15px 0 5px 0;
-  padding-top: 20px;
-}
-
-.portfolio-details .portfolio-description .testimonial-item h4 {
-  font-size: 14px;
-  color: #6c757d;
-  margin: 0;
-}
-
-.portfolio-details .portfolio-description .testimonial-item .quote-icon-left,
-.portfolio-details .portfolio-description .testimonial-item .quote-icon-right {
-  color: color-mix(in srgb, var(--accent-color), transparent 50%);
-  font-size: 26px;
-  line-height: 0;
-}
-
-.portfolio-details .portfolio-description .testimonial-item .quote-icon-left {
-  display: inline-block;
-  left: -5px;
-  position: relative;
-}
-
-.portfolio-details .portfolio-description .testimonial-item .quote-icon-right {
-  display: inline-block;
-  right: -5px;
-  position: relative;
-  top: 10px;
-  transform: scale(-1, -1);
-}
-
-.portfolio-details .portfolio-description .testimonial-item p {
-  font-style: italic;
-  margin: 0 0 15px 0 0 0;
-  padding: 0;
-}
-
-/*--------------------------------------------------------------
-# Service Details Section
---------------------------------------------------------------*/
-.service-details .service-box {
-  padding: 20px;
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.service-details .service-box+.service-box {
-  margin-top: 30px;
-}
-
-.service-details .service-box h4 {
-  font-size: 20px;
-  font-weight: 700;
-  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-
-.service-details .services-list a {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-  margin-top: 15px;
-  transition: 0.3s;
-}
-
-.service-details .services-list a:first-child {
-  margin-top: 0;
-}
-
-.service-details .services-list a i {
-  font-size: 16px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-.service-details .services-list a.active {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-}
-
-.service-details .services-list a.active i {
-  color: var(--contrast-color);
-}
-
-.service-details .services-list a:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
-  color: var(--accent-color);
-}
-
-.service-details .download-catalog a {
-  color: var(--default-color);
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  transition: 0.3s;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.service-details .download-catalog a:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.service-details .download-catalog a:last-child {
-  padding-bottom: 0;
-}
-
-.service-details .download-catalog a i {
-  font-size: 24px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-.service-details .download-catalog a:hover {
-  color: var(--accent-color);
-}
-
-.service-details .help-box {
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-  margin-top: 30px;
-  padding: 30px 15px;
-}
-
-.service-details .help-box .help-icon {
-  font-size: 48px;
-}
-
-.service-details .help-box h4,
-.service-details .help-box a {
-  color: var(--contrast-color);
-}
-
-.service-details .services-img {
-  margin-bottom: 20px;
-}
-
-.service-details h3 {
-  font-size: 26px;
-  font-weight: 700;
-}
-
-.service-details p {
-  font-size: 15px;
-}
-
-.service-details ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.service-details ul li {
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
-}
-
-.service-details ul i {
-  font-size: 20px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="/Portfolio/">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Misa Fujita Portfolio</title>
+  <meta content="東京を拠点とするGraphic・UI/UXデザイナー、クリエイティブディレクター藤田操のページです" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex flex-column justify-content-center">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+    <nav id="navmenu" class="navmenu">
+      <ul>
+        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
+        <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
+        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
+        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
+        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Personal</span></a></li>
+        <li><a href="mailto:misafujico@gmail.com"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section light-background">
+    
+      <img src="assets/img/hero-bg.jpg" alt="Water painting">
+      
+      <div class="container" data-aos="zoom-out">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <h2>Misa Fujita</h2>
+            <p>I'm 
+              <span class="typed" data-typed-items="Graphic Designer, UI/UX Designer, Creative Director"></span>
+              <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
+            </p>
+            <div class="social-links">
+              <a href="https://www.facebook.com/misa.fujita.9" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/social.bread_/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/misa-fujita-9b72012aa/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scrolldown">
+        <span style="color: 333; letter-spacing: 0.2em; font-size: 0.8em;">SCROLL</span>
+      </div>      
+
+    </section>
+    <!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>About</h2>
+        <p>水彩からデッサンまで学んだ10年の美術教育と、進路を決定づけたMacとの出会い。</br>20年以上にわたり、グラフィックデザイナーとして視覚的な導線設計に挑戦し続けています。</p>
+      </div>
+      <!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-5 justify-content-center">
+          <div class="col-md-4">
+            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-8 content">
+            <h2>自分が幸せを感じながら、次世代の暮らしをつくる</h2>
+            <p class="py-3">『次世代の暮らし』と『自身の幸せ』を両立させること。これはキャリアを通じて確立した私の仕事観です。社会的に意義のあるコンテンツにポジティブなインパクトを持たせ、見た人に行動を起こさせるビジュアルを提供します。
+            </p>
+            <div>
+                <ul>
+                  <li><i class="bi bi-chevron-right"></i> <strong>1</strong> <span>環境と社会と人に役に立つコンテンツに関わる</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>2</strong> <span>直感的に伝わるデザインの創出する</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>3</strong> <span>ユーザーのバックグラウンドや好みを十分に調査する</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>4</strong> <span>エキスパートからのアドバイスを積極的に受け、一生学び続ける</span></li>
+                </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- /About Section -->
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Skills</h2>
+        <p>できることは着実に、わからないことは真摯に学ぶ。生涯を通じて学びを続けます</p>
+      </div>
+      <!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row skills-content skills-animation">
+          <div class="col-lg-6">
+
+            <!-- Skills Items -->
+            <div class="progress">
+              <span class="skill"><span>Photoshop</span> <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill"><span>Figma</span> <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+            
+            <div class="progress">
+              <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill"><span>Creative Direction</span> <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+            
+              <!-- Skills Items -->
+              <div class="progress">
+              <span class="skill"><span>Illustrator</span> <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              </div>
+
+              <div class="progress">
+              <span class="skill"><span>Adobe XD</span> <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              </div>
+
+              <div class="progress">
+              <span class="skill"><span>CSS</span> <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              </div>
+
+              <div class="progress">
+              <span class="skill"><span>Team Building</span> <i class="val">70%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /Skills Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Works</h2>
+        <p>これまでの制作事例を紹介します。画像をクリックすると外部リンクの詳細ページにリンクします。</p>
+      </div>
+      <!-- End Section Title -->
+
+      <div class="container">
+
+      <!-- Portfolio Filters & Items Layout -->
+      <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <!-- Filters -->
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active"># All</li>
+            <li data-filter=".filter-cd"># Creative Direction</li>
+            <li data-filter=".filter-gd"># Graphic Design	</li>
+            <li data-filter=".filter-we"># Web & UI Design</li>
+            <!-- <li data-filter=".filter-br"># Branding </li> -->
+            <li data-filter=".filter-sd"># Social Design</li>
+            <li data-filter=".filter-il"># Illustration</li>
+          </ul><!-- End Filters -->
+          
+        <!-- Portfolio Container -->
+        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            <!-- Portfolio Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cd">
+              <div class="portfolio-content h-100">
+              <p class="portfolio-subtitle">図書文化施設の</br>クリエイティブディレクション</p>
+                <a href="https://jazzy-quiver-6e6.notion.site/Creative-Direction-215c8d16ea388064b9fcdd4723787363" target="_blank">
+                  <img src="assets/img/masonry-portfolio/card01.jpg" class="img-fluid" alt="本のない図書館">
+                  <div class="hover-overlay">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    <span> 外部リンクへ</span>
+                  </div>
+                </a>
+              </div>
+              <!-- <div class="portfolio-info">
+                <h4># Creative Direction</h4>
+              </div> -->
+              </div>
+            <!-- End Portfolio Item -->
+            <!-- Portfolio Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gd">
+              <div class="portfolio-content h-100">
+              <p class="portfolio-subtitle">クラフト酒の</br>ラベルデザイン</p>
+                <a href="https://jazzy-quiver-6e6.notion.site/Graphic-Design-148c8d16ea3880728978f0cfe38ab0ec" target="_blank">
+                  <img src="assets/img/masonry-portfolio/card02.jpg" class="img-fluid" alt="haccoba">
+                  <div class="hover-overlay">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    <span> 外部リンクへ</span>
+                  </div>
+                </a>
+                <!-- <div class="portfolio-info">
+                  <h4># Graphic Design</h4>
+                </div> -->
+              </div>
+            </div>
+            <!-- End Portfolio Item -->
+            <!-- Portfolio Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-we">
+              <div class="portfolio-content h-100">
+              <p class="portfolio-subtitle">アプリーションの</br>チーム開発</p> 
+                <a href="https://jazzy-quiver-6e6.notion.site/Web-UI-Design-1d4c8d16ea3880b7a919f8d98037247e" target="_blank">                
+                  <img src="assets/img/masonry-portfolio/card03.jpg" class="img-fluid" alt="MEntal">
+                  <div class="hover-overlay">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    <span> 外部リンクへ</span>
+                  </div>
+                </a>
+                <!-- <div class="portfolio-info">
+                  <h4># Web & UI Design</h4>
+                </div> -->
+              </div>
+            </div>
+            <!-- End Portfolio Item -->
+            <!-- Portfolio Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cd filter-br">
+              <div class="portfolio-content h-100">
+              <p class="portfolio-subtitle">和食ダイニングの</br>アートディレクション</p>
+                <a href="https://www.notion.so/Branding-141c8d16ea38801c8768e77820c3141e?source=copy_link#217c8d16ea388016b6ebc908067de6f4" target="_blank">
+                  <img src="assets/img/masonry-portfolio/card04.jpg" class="img-fluid" alt="音音">
+                  <div class="hover-overlay">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    <span> 外部リンクへ</span>
+                  </div>
+                </a>
+                <!-- <div class="portfolio-info">
+                  <h4># Branding # Creative Direction # Graphic Design</h4>
+                </div> -->
+              </div>
+            </div>
+            <!-- End Portfolio Item -->
+            <!-- Portfolio Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sd">
+              <div class="portfolio-content h-100">
+              <p class="portfolio-subtitle">行政と連携する</br>クリエイティブディレクション</p>
+                <a href="https://www.notion.so/Social-Design-178c8d16ea3880fba8e8eda008c147a8" target="_blank">
+                  <img src="assets/img/masonry-portfolio/card05.jpg" class="img-fluid" alt="百年の森">
+                  <div class="hover-overlay">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    <span> 外部リンクへ</span>
+                  </div>
+                </a>
+                <!-- <div class="portfolio-info">
+                  <h4># Social Design</h4>
+                </div> -->
+              </div>
+            </div>
+            <!-- End Portfolio Item -->
+            <!-- Portfolio Item -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-il">
+              <div class="portfolio-content h-100">
+              <p class="portfolio-subtitle">イラストレーションや水彩画</p>
+                <a href="https://jazzy-quiver-6e6.notion.site/Illustration-32ca41ed5fff4609a9457cc6c278b54d" target="_blank">
+                  <img src="assets/img/masonry-portfolio/card06.jpg" class="img-fluid" alt="Nikari">
+                  <div class="hover-overlay">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    <span> 外部リンクへ</span>
+                  </div>
+                  <!-- <div class="portfolio-info">
+                    <h4># Illustration</h4>
+                  </div> -->
+                </a>
+              </div>
+            </div>
+            <!-- End Portfolio Item -->
+            <!-- Portfolio Item -->
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gd">
+              <div class="portfolio-content h-100">
+                <p class="portfolio-subtitle">Graphic Design</p>
+                <a href="https://jazzy-quiver-6e6.notion.site/Graphic-Design-148c8d16ea3880728978f0cfe38ab0ec" target="_blank">
+                  <img src="assets/img/masonry-portfolio/card07.jpg" class="img-fluid" alt="やまなし">
+                  <div class="hover-overlay">
+                      <i class="bi bi-box-arrow-up-right"></i>
+                      <span> 外部リンクへ</span>
+                  </div> -->
+                  <!-- <div class="portfolio-info">
+                    <h4># Graphic Design</h4>
+                  </div> -->
+                <!-- </a>
+              </div> -->
+            <!-- </div> -->
+            <!-- End Portfolio Item -->
+            <!-- Portfolio Item -->
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cd filter-gr">
+              <div class="portfolio-content h-100">
+              <p class="portfolio-subtitle">Creative Direction</p>
+                <a href="https://www.notion.so/Creative-Direction-215c8d16ea388064b9fcdd4723787363?source=copy_link#215c8d16ea38809fabd7c545bb594359" target="_blank">
+                  <img src="assets/img/masonry-portfolio/card08.jpg" class="img-fluid" alt="SingLoveSong">
+                  <div class="hover-overlay">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    <span> 外部リンクへ</span>
+                  </div> -->
+                  <!-- <div class="portfolio-info">
+                    <h4># Creative Direction</h4>
+                  </div> -->
+                <!-- </a>
+              </div>
+            </div> -->
+            <!-- End Portfolio Item -->
+            <!-- Portfolio Item -->
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-br">
+              <div class="portfolio-content h-100">
+              <p class="portfolio-subtitle">Branding</p>
+                <a href="https://jazzy-quiver-6e6.notion.site/Branding-141c8d16ea38801c8768e77820c3141e" target="_blank">
+                  <img src="assets/img/masonry-portfolio/card09.jpg" class="img-fluid" alt="Kaja">
+                  <div class="hover-overlay">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    <span> 外部リンクへ</span>
+                  </div> -->
+                  <!-- <div class="portfolio-info">
+                    <h4># Branding</h4>
+                  </div> -->
+                <!-- </a>
+              </div>
+            </div> -->
+            <!-- End Portfolio Item -->
+
+        </div><!-- End Portfolio Container -->
+      </div><!-- End Portfolio Filters & Isotope Items Layout -->
+
+    </section>
+    <!-- End Portfolio Section -->
+
+    
+    <!-- Resume Section -->
+    <section id="resume" class="resume section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        <p>食・旅・イベントやワークショップにおけるデザインとディレクションに携わり、</br>現場で感性を磨きながら実績を重ねてきました。</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row  gx-10">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="resume-title">基本情報</h3>
+            <div class="resume-item pb-0">
+              <h4>藤田 操｜Misa Fujita</h4>
+              <p>少女時代に培った絵画の基礎、学生時代に学んだアートや哲学の知識、20年以上にわたるデザインの現場、8年間のマネジメント経験から、『人と社会と環境にポジティブなインパクトを与えるデザイン』を生み出すために尽力しています。</p>
+              <ul>
+                <li>神奈川県出身</li>
+                <li>特技：整理整頓、パン作り（カンパーニュ）</li>
+                <li>趣味：学ぶこと、AIと会話、車の運転、英語</li>
+              </ul>
+            </div>
+            <!-- End Resume Item -->
+
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>美術教育</h4>
+              <h5>1976 - 1986</h5>
+              <p><em>溝口美術研究所</em></p>
+              <p>3歳から10年間にわたり指導を受ける。水彩画・油絵・デッサンを実践的に学び、視覚表現の基礎を身につける</p>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>日本文学専攻</h4>
+              <h5>1993 - 1996</h5>
+              <p><em>早稲田大学</em></p>
+              <p>研究テーマは『1920年代パリのカフェ文化と仏文学が日本に与えた影響』。バウハウス、シュールレアリズム、ヌーベル・ヴァーグ、アヴァンギャルド、ミッドセンチュリーモダン、構造主義などを探求。デザイン研究会にて Apple Macintoshとの衝撃的な出会いを経て、デザインの仕事を志すようになる</p>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>デッサンと表現力の強化</h4>
+              <h5>2009 - 2011</h5>
+              <p>セツ・モードセミナー美術科</p>
+              <p>ファッションイラストレーター・エッセイストの長澤節氏が創設した美術学校にて、水彩画・クロッキー・デッサンの指導を受ける。社会人になってデザイナーとしての限界を感じた頃に、もう一度基礎に戻ろうと決意して入学した</p>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>色彩検定１級</h4>
+              <h5>2012</h5>
+              <p><em>文部科学省後援 公益社団法人色彩検定協会</em></p>
+              <p>色彩の理論・心理・光学的特性を含む幅広い知識を習得し、広告・Web・商品企画・空間設計など、あらゆる分野に応用可能な色彩検定1級に合格</p>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>プログラミング学習</h4>
+              <h5>2024.March - September</h5>
+              <p><em>Kredo Online Camp Web Development Course</em></p>
+              <p>PHP / Laravel / Github / Sourcetree / html / css / Javascript / Bootstrap / UI/UXデザイン（Figma）の基礎を終了後、Webアプリのチーム開発においてUIデザインとフロントエンドを担当。授業と開発は全て英語で行われました</p>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>UI/UXデザイン基礎学習</h4>
+              <h5>2024 December</h5>
+              <p><em>Microsoft Fundamentals of UI/UX Design certification</em></p>
+              <p>UI/UXデザインの基礎概念、ワイヤーフレーム・プロトタイプ設計などを英語で学ぶ認定プログラムを修了</p>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>Visual Elements of User Interface Design</h4>
+              <h5>2025 April-</h5>
+              <p><em>California Institute of the Arts</em></p>
+              <p>カリフォルニア芸術大学（CalArts）が提供する、UIデザインの基礎を学ぶオンラインコースを英語で受講中</p>
+            </div>
+            <!-- End Resume Item -->
+
+          </div>
+
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <h3 class="resume-title">職務経歴</h3>
+            <div class="resume-item">
+              <h4>部長補佐 / 事務 / 進行管理 / コンテンツデザイナー</h4>
+              <h5>2022.10 - 現在</h5>
+              <p><a href="https://cuisine-kingdom.com/" target="_blank" rel="noopener noreferrer">株式会社JFLAホールディングス 雑誌『料理王国』編集部 <i class="bi bi-box-arrow-up-right"></a></i></p>
+              <ul>
+                <li>営業資料作成・請求書処理・アンケート集計</li>
+                <li>インスタグラムの運用（2023年1月〜2024年1月）</li>
+                <li>バナー・LPページのデザイン、実装</li>
+                <li>PR TIMES等のプレスリリース発進業務</li>
+              </ul>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>現場責任者 / プロジェクトマネージャー</h4>
+              <h5>2012.9〜2022.1</h5>
+              <p><a href="https://www.musashino.or.jp/place/ " target="_blank" rel="noopener noreferrer">株式会社レセルカーダ｜武蔵野プレイス <i class="bi bi-box-arrow-up-right"></a></i></p>
+              <ul>
+                <li>武蔵野市立武蔵野プレイス（図書文化施設）内の飲食店運営における現場責任者</li>
+                <li>各専門家を招聘したセミナーやワークショップの企画・運営</li>
+                <li>SNSの運用</li>
+                <li>行政との連携業務に参画（動画制作・合同イベント・プレミアグッズ企画デザイン）</li>
+                <li>2017年ファシリティマネジメント大賞において最優秀賞を受賞</li>
+              </ul>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>広報 / Webディレクター / C.I.ディレクター</h4>
+              <h5>2009.9〜2012.8</h5>
+              <p><a href="https://kaja-design.com/" target="_blank" rel="noopener noreferrer">株式会社大熊工業 建築設計事業部 KAJA DESIGN <i class="bi bi-box-arrow-up-right"></a></i></p>
+              <ul>
+                <li>Webディレクション、社内外の制作物を統括するアートディレクター</li>
+                <li>広報業務</li>
+                <li>新築物件見学会の企画・集客・広報・運営</li>
+                <li>インテリア家具販売における商品撮影・ECサイト運営・現場撮影・画像合成</li>
+              </ul>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>グラフィックデザイナー</h4>
+              <h5>2005.1〜2006.1</h5>
+              <p>株式会社ドトールコーヒー本社企画室</p>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>グラフィックデザイナー / アートディレクター</h4>
+              <h5>1996.3〜2004.12</h5>
+              <p><a href="https://www.desc.jp/" target="_blank" rel="noopener noreferrer">有限会社デスク <i class="bi bi-box-arrow-up-right"></a></i></p>
+              <ul>
+                <li>宿泊施設・飲食店におけるSPツールのグラフィックデザイン、アートディレクション</li>
+                <li>Webデザイン</li>
+                <li>Cartier（カルティエ）日本版年間商品カタログの制作チームに参加</li>
+                <li>撮影現場の立ち会い、フォトディレクション</li>
+              </ul>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
+              <h4>フリーランス</h4>
+              <h5>2006-</h5>
+              <ul>
+                <li>海外旅行カタログの誌面編集 / DTP/ Webデザイン（株式会社エイチ・アイ・エス様）</li>
+                <li>インスタグラムのアートディレクション（株式会社インタツアー様）</li>
+                <li>個人事業主へのコンサルティング（アートディレクション等）</li>
+                <li>Photoshop・Figmaの操作指導（スキル習得支援プラットフォーム『MENTA』にて）</li>
+              </ul>
+            </div>
+            <!-- End Resume Item -->
+
+          </div>
+        </div>
+      </div>
+    </section><!-- /Resume Section -->
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Personal Activities</h2>
+        <p>クライアントワークの他に、個人的なプロジェクトや所属しているNPOの活動を紹介します</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+              <div class="icon">
+                <img src="assets/img/personal-activities/logo_socialbread.png" width="150" height="150" alt="EVERY">
+              </div>
+              <a href="https://www.instagram.com/p/CcULiNftk1e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="stretched-link" target="_blank" rel="noopener noreferrer">
+                <h3><span style="text-decoration: underline;">Social Bread</span></h3>
+              </a>
+              <p>本来は廃棄される「コーヒーの出がらし」などを食材として活用し、新たな価値を生み出すフードブランドを自分１人で創立。メイン商品は『ZERO WASTE CHOCOLATE』。乾燥させたコーヒーの出がらしにアーモンドやドライフルーツをミックスし、チョコレートでコーティングしたサステナブルなスイーツ。通信販売やイベント出店などを行った。</br>活動期間：2021.12-2022.5</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item item-orange position-relative">
+              <div class="icon">
+                <img src="assets/img/personal-activities/logo_every.jpg" width="150" height="150" alt="EVERY">
+              </div>
+              <a href="https://www.instagram.com/p/B_RUkPED_0W/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="stretched-link " target="_blank" rel="noopener noreferrer">
+                <h3><span style="text-decoration: underline;">EVERY</span></h3>
+              </a>
+              <p>スリランカ現地のアーユルヴェーダ医師やホテルのシェフから本場の指導を受けて誕生した、スパイスカレーのブランド。スパイスの効能を活かした本格的なレシピが特長。コロナ禍でケータリングサービスとして展開し、武蔵野市役所や企業へのデリバリーや、イベント出店、テイクアウト販売を行った。</br>活動期間：2020.3-2020.9</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item item-teal position-relative">
+              <div class="icon">                
+                <img src="assets/img/personal-activities/logo_mad.png" width="150" height="150" alt="MITAKA AREA DESIGN">
+              </div>
+              <a href="https://www.facebook.com/walkablemitaka/" target="_blank" rel="noopener noreferrer" class="stretched-link">
+                <h3><span style="text-decoration: underline;">MITAKA AREA DESIGN</span></h3>
+              </a>
+              <p>2020年に有志の任意団体『Walkable Mitaka（ウォーカブル三鷹）』に参加し、2024年10月にNPOミタカエリアデザインとして法人化された際、理事に就任。メンバーは、都市計画系の建築家やデザイナー、三鷹市のキーパーソン、商店会会長、まちづくりの専門家などで構成され、主に三鷹市南口エリアの活性化や開発プロジェクトに取り組んでいます。</br>活動期間：2020- 現在</p>
+            </div>
+          </div><!-- End Service Item -->
+        </div>
+      </div>
+    </section><!-- /Services Section -->
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container">
+      <h3 class="sitename">Misa Fujita</h3>
+      <p>Development with VS CODE and Github, Designed with Figma</p>
+      <div class="social-links d-flex justify-content-center">
+              <a href="https://www.facebook.com/misa.fujita.9" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/social.bread_/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/misa-fujita-9b72012aa/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Misa Fujita</strong> <span>All Rights Reserved</span>
+        </div>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you've purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+          <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distribuited by <a href="https://themewagon.com">ThemeWagon</a> -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
