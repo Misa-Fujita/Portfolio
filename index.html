@@ -7,7 +7,10 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Misa Fujita Portfolio</title>
   <meta content="東京を拠点とするGraphic・UI/UXデザイナー、クリエイティブディレクター藤田操のページです" name="description">
-  <meta content="" name="keywords">
+  <!-- <meta content="" name="keywords"> -->
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -27,7 +30,7 @@
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/main.css?v=20240623" rel="stylesheet">
   
 </head>
 
@@ -52,16 +55,17 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section light-background">
     
-      <img src="assets/img/hero-bg.jpg" alt="Water painting">
+      <img id="hero-bg" class="fade" src="assets/img/hero-bg1.jpg" alt="Water painting">
       
       <div class="container" data-aos="zoom-out">
         <div class="row justify-content-center">
           <div class="col-lg-9">
             <h2>Misa Fujita</h2>
             <p>I'm 
-              <span class="typed" data-typed-items="Graphic Designer, UI/UX Designer, and Creative Director"></span>
+              <span class="typed" data-typed-items="Graphic Designer, UI/UX Designer, Creative Director"></span>
               <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
             </p>
+            <p class="text">心に響く、直感的なデザインを</p>
             <div class="social-links">
               <a href="https://www.facebook.com/misa.fujita.9" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
               <a href="https://www.instagram.com/social.bread_/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
@@ -72,8 +76,9 @@
       </div>
 
       <div class="scrolldown">
-        <span style="color: 333; letter-spacing: 0.2em; font-size: 0.8em;">SCROLL</span>
-      </div>      
+        <div class="scroll-text">SCROLL</div>
+        <div class="arrow"></div>
+      </div> 
 
     </section>
     <!-- /Hero Section -->
@@ -84,7 +89,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>About</h2>
-        <p>3歳から10年間 美術教育を受ける。学生時代にApple Macintoshに出会って世界がひらき、グラフィックデザイナーになりました。</p>
+        <p>水彩からデッサンまで学んだ10年の美術教育と、進路を決定づけたMacとの出会い。</br>20年以上にわたり、グラフィックデザイナーとして視覚的な導線設計に挑戦し続けています。</p>
       </div>
       <!-- End Section Title -->
 
@@ -95,14 +100,14 @@
           </div>
           <div class="col-md-8 content">
             <h2>自分が幸せを感じながら、次世代の暮らしをつくる</h2>
-            <p class="py-3">“自身の幸せ”と”次世代の暮らし”を両立させること。これはキャリアを通じて確立した私の仕事観です。社会的に意義のあるビジュアルをディレクション・デザインすることで、ポジティブなインパクトを持たせながらクライアントや協力者の共感を得て、実装へと進めていきます。
+            <p class="py-3">『次世代の暮らし』と『自身の幸せ』を両立させること。これはキャリアを通じて確立した私の仕事観です。社会的に意義のあるコンテンツにポジティブなインパクトを持たせ、見た人に行動を起こさせるビジュアルを提供します。
             </p>
             <div>
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>1</strong> <span>自身が生み出すコンテンツに社会的な意義を持たせる</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>2</strong> <span>関係者全員が理解できる言葉づかいやイメージを創出し、活用する</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>3</strong> <span>個々人のスキルセットやバックグラウンドへの理解を深め、成長を助ける</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>4</strong> <span>積極的に外部のエキスパートからアドバイスを受け、一生学びを続ける</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>1</strong> <span>環境と社会と人に役に立つコンテンツに関わる</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>2</strong> <span>直感的に伝わるデザインを創出する</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>3</strong> <span>ユーザーのバックグラウンドや好みを十分に調査する</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>4</strong> <span>エキスパートからのアドバイスを積極的に受け、一生学び続ける</span></li>
                 </ul>
             </div>
           </div>
@@ -199,7 +204,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Works</h2>
-        <p>これまでの制作事例を紹介します</p>
+        <p>これまでの制作事例を紹介します。画像をクリックすると外部リンクの詳細ページにリンクします。</p>
       </div>
       <!-- End Section Title -->
 
@@ -214,7 +219,7 @@
             <li data-filter=".filter-cd"># Creative Direction</li>
             <li data-filter=".filter-gd"># Graphic Design	</li>
             <li data-filter=".filter-we"># Web & UI Design</li>
-            <li data-filter=".filter-br"># Branding </li>
+            <!-- <li data-filter=".filter-br"># Branding </li> -->
             <li data-filter=".filter-sd"># Social Design</li>
             <li data-filter=".filter-il"># Illustration</li>
           </ul><!-- End Filters -->
@@ -224,7 +229,7 @@
             <!-- Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cd">
               <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">Creative Direction</p>
+              <p class="portfolio-subtitle">▼ 図書文化施設</br>クリエイティブディレクション</p>
                 <a href="https://jazzy-quiver-6e6.notion.site/Creative-Direction-215c8d16ea388064b9fcdd4723787363" target="_blank">
                   <img src="assets/img/masonry-portfolio/card01.jpg" class="img-fluid" alt="本のない図書館">
                   <div class="hover-overlay">
@@ -241,7 +246,7 @@
             <!-- Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gd">
               <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">Graphic Design</p>
+              <p class="portfolio-subtitle">▼ クラフト酒ブルワリー</br>ラベルデザイン</p>
                 <a href="https://jazzy-quiver-6e6.notion.site/Graphic-Design-148c8d16ea3880728978f0cfe38ab0ec" target="_blank">
                   <img src="assets/img/masonry-portfolio/card02.jpg" class="img-fluid" alt="haccoba">
                   <div class="hover-overlay">
@@ -258,7 +263,7 @@
             <!-- Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-we">
               <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">Web & UI Design</p> 
+              <p class="portfolio-subtitle">▼ アプリーション</br>チーム開発</p> 
                 <a href="https://jazzy-quiver-6e6.notion.site/Web-UI-Design-1d4c8d16ea3880b7a919f8d98037247e" target="_blank">                
                   <img src="assets/img/masonry-portfolio/card03.jpg" class="img-fluid" alt="MEntal">
                   <div class="hover-overlay">
@@ -275,7 +280,7 @@
             <!-- Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cd filter-br">
               <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">Branding｜Creative Direction</p>
+              <p class="portfolio-subtitle">▼ 和食ダイニング</br>アートディレクション</p>
                 <a href="https://www.notion.so/Branding-141c8d16ea38801c8768e77820c3141e?source=copy_link#217c8d16ea388016b6ebc908067de6f4" target="_blank">
                   <img src="assets/img/masonry-portfolio/card04.jpg" class="img-fluid" alt="音音">
                   <div class="hover-overlay">
@@ -292,7 +297,7 @@
             <!-- Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sd">
               <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">Social Design</p>
+              <p class="portfolio-subtitle">▼ 行政と連携</br>クリエイティブディレクション</p>
                 <a href="https://www.notion.so/Social-Design-178c8d16ea3880fba8e8eda008c147a8" target="_blank">
                   <img src="assets/img/masonry-portfolio/card05.jpg" class="img-fluid" alt="百年の森">
                   <div class="hover-overlay">
@@ -309,7 +314,7 @@
             <!-- Portfolio Item -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-il">
               <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">Illustration</p>
+              <p class="portfolio-subtitle">▼ イラストレーションや水彩画</p>
                 <a href="https://jazzy-quiver-6e6.notion.site/Illustration-32ca41ed5fff4609a9457cc6c278b54d" target="_blank">
                   <img src="assets/img/masonry-portfolio/card06.jpg" class="img-fluid" alt="Nikari">
                   <div class="hover-overlay">
@@ -324,7 +329,7 @@
             </div>
             <!-- End Portfolio Item -->
             <!-- Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gd">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gd">
               <div class="portfolio-content h-100">
                 <p class="portfolio-subtitle">Graphic Design</p>
                 <a href="https://jazzy-quiver-6e6.notion.site/Graphic-Design-148c8d16ea3880728978f0cfe38ab0ec" target="_blank">
@@ -332,16 +337,16 @@
                   <div class="hover-overlay">
                       <i class="bi bi-box-arrow-up-right"></i>
                       <span> 外部リンクへ</span>
-                  </div>
+                  </div> -->
                   <!-- <div class="portfolio-info">
                     <h4># Graphic Design</h4>
                   </div> -->
-                </a>
-              </div>
-            </div>
+                <!-- </a>
+              </div> -->
+            <!-- </div> -->
             <!-- End Portfolio Item -->
             <!-- Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cd filter-gr">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cd filter-gr">
               <div class="portfolio-content h-100">
               <p class="portfolio-subtitle">Creative Direction</p>
                 <a href="https://www.notion.so/Creative-Direction-215c8d16ea388064b9fcdd4723787363?source=copy_link#215c8d16ea38809fabd7c545bb594359" target="_blank">
@@ -349,16 +354,16 @@
                   <div class="hover-overlay">
                     <i class="bi bi-box-arrow-up-right"></i>
                     <span> 外部リンクへ</span>
-                  </div>
+                  </div> -->
                   <!-- <div class="portfolio-info">
                     <h4># Creative Direction</h4>
                   </div> -->
-                </a>
+                <!-- </a>
               </div>
-            </div>
+            </div> -->
             <!-- End Portfolio Item -->
             <!-- Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-br">
+            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-br">
               <div class="portfolio-content h-100">
               <p class="portfolio-subtitle">Branding</p>
                 <a href="https://jazzy-quiver-6e6.notion.site/Branding-141c8d16ea38801c8768e77820c3141e" target="_blank">
@@ -366,13 +371,14 @@
                   <div class="hover-overlay">
                     <i class="bi bi-box-arrow-up-right"></i>
                     <span> 外部リンクへ</span>
-                  </div>
+                  </div> -->
                   <!-- <div class="portfolio-info">
                     <h4># Branding</h4>
                   </div> -->
-                </a>
+                <!-- </a>
               </div>
-            </div><!-- End Portfolio Item -->
+            </div> -->
+            <!-- End Portfolio Item -->
 
         </div><!-- End Portfolio Container -->
       </div><!-- End Portfolio Filters & Isotope Items Layout -->
@@ -407,10 +413,18 @@
 
             <h3 class="resume-title">Education</h3>
             <div class="resume-item">
+              <h4>美術教育</h4>
+              <h5>1976 - 1986</h5>
+              <p><em>溝口美術研究所</em></p>
+              <p>3歳から10年間にわたり指導を受ける。水彩画・油絵・デッサンを実践的に学び、視覚表現の基礎を身につける</p>
+            </div>
+            <!-- End Resume Item -->
+
+            <div class="resume-item">
               <h4>日本文学専攻</h4>
               <h5>1993 - 1996</h5>
               <p><em>早稲田大学</em></p>
-              <p>研究テーマは『1920年代パリのカフェ文化と仏文学が日本に与えた影響』。バウハウス、シュールレアリズム、ヌーベル・ヴァーグ、アヴァンギャルド、ミッドセンチュリーモダン、構造主義などを探求。デザイン研究会にて Apple Macintoshと出会う</p>
+              <p>研究テーマは『1920年代パリのカフェ文化と仏文学が日本に与えた影響』。バウハウス、シュールレアリズム、ヌーベル・ヴァーグ、アヴァンギャルド、ミッドセンチュリーモダン、構造主義などを探求。デザイン研究会にて Apple Macintoshとの衝撃的な出会いを経て、デザインの仕事を志すようになる</p>
             </div>
             <!-- End Resume Item -->
 
@@ -418,7 +432,7 @@
               <h4>デッサンと表現力の強化</h4>
               <h5>2009 - 2011</h5>
               <p>セツ・モードセミナー美術科</p>
-              <p>ファッションイラストレーター・エッセイストの長澤節氏が創設した美術学校にて、水彩画・クロッキー・デッサンを学ぶ</p>
+              <p>ファッションイラストレーター・エッセイストの長澤節氏が創設した美術学校にて、水彩画・クロッキー・デッサンの指導を受ける。社会人になってデザイナーとしての限界を感じた頃に、もう一度基礎に戻ろうと決意して入学した</p>
             </div>
             <!-- End Resume Item -->
 
@@ -433,13 +447,13 @@
             <div class="resume-item">
               <h4>プログラミング学習</h4>
               <h5>2024.March - September</h5>
-              <p><em>Kredo Online Camp Web Development Courseを修了</em></p>
+              <p><em>Kredo Online Camp Web Development Course</em></p>
               <p>PHP / Laravel / Github / Sourcetree / html / css / Javascript / Bootstrap / UI/UXデザイン（Figma）の基礎を終了後、Webアプリのチーム開発においてUIデザインとフロントエンドを担当。授業と開発は全て英語で行われました</p>
             </div>
             <!-- End Resume Item -->
 
             <div class="resume-item">
-              <h4>UI/UXデザイン基礎</h4>
+              <h4>UI/UXデザイン学習</h4>
               <h5>2024 December</h5>
               <p><em>Microsoft Fundamentals of UI/UX Design certification</em></p>
               <p>UI/UXデザインの基礎概念、ワイヤーフレーム・プロトタイプ設計などを英語で学ぶ認定プログラムを修了</p>
@@ -459,40 +473,39 @@
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <h3 class="resume-title">職務経歴</h3>
             <div class="resume-item">
-              <h4>部長補佐 / 事務 / 進行管理 / コンテンツデザイナー</h4>
+              <h4>グラフィックデザイナー / 広報</h4>
               <h5>2022.10 - 現在</h5>
               <p><a href="https://cuisine-kingdom.com/" target="_blank" rel="noopener noreferrer">株式会社JFLAホールディングス 雑誌『料理王国』編集部 <i class="bi bi-box-arrow-up-right"></a></i></p>
               <ul>
-                <li>営業資料作成・請求書処理・アンケート集計</li>
+                <li>バナー・LPページのデザインと実装</li>
                 <li>インスタグラムの運用（2023年1月〜2024年1月）</li>
-                <li>バナー・LPページのデザイン、実装</li>
                 <li>PR TIMES等のプレスリリース発進業務</li>
               </ul>
             </div>
             <!-- End Resume Item -->
 
             <div class="resume-item">
-              <h4>現場責任者 / プロジェクトマネージャー</h4>
+              <h4>クリエイティブディレクター / 現場マネージャー</h4>
               <h5>2012.9〜2022.1</h5>
               <p><a href="https://www.musashino.or.jp/place/ " target="_blank" rel="noopener noreferrer">株式会社レセルカーダ｜武蔵野プレイス <i class="bi bi-box-arrow-up-right"></a></i></p>
               <ul>
-                <li>武蔵野市立武蔵野プレイス（図書文化施設）内の飲食店運営における現場責任者</li>
-                <li>各専門家を招聘したセミナーやワークショップの企画・運営</li>
-                <li>SNSの運用</li>
-                <li>行政との連携業務に参画（動画制作・合同イベント・プレミアグッズ企画デザイン）</li>
+                <li>武蔵野市立武蔵野プレイス（図書文化施設）内の飲食店におけるクリエイティブディレクション</li>
+                <li>メニュー写真撮影（一眼レフ）や店舗ツールのデザイン</li>
+                <li>セミナーやワークショップの企画・運営・広報デザイン</li>
+                <li>行政との連携業務に参画（動画制作・プレミアグッズ企画デザイン）</li>
                 <li>2017年ファシリティマネジメント大賞において最優秀賞を受賞</li>
               </ul>
             </div>
             <!-- End Resume Item -->
 
             <div class="resume-item">
-              <h4>広報 / Webディレクター / C.I.ディレクター</h4>
+              <h4>アートディレクター / Webディレクター</h4>
               <h5>2009.9〜2012.8</h5>
               <p><a href="https://kaja-design.com/" target="_blank" rel="noopener noreferrer">株式会社大熊工業 建築設計事業部 KAJA DESIGN <i class="bi bi-box-arrow-up-right"></a></i></p>
               <ul>
-                <li>Webディレクション、社内外の制作物を統括するアートディレクター</li>
+                <li>社内外の制作物を統括するアートディレクター</li>
+                <li>新規Webサイトのディレクション（デザイン・外部発注・進行管理）</li>
                 <li>広報業務</li>
-                <li>新築物件見学会の企画・集客・広報・運営</li>
                 <li>インテリア家具販売における商品撮影・ECサイト運営・現場撮影・画像合成</li>
               </ul>
             </div>
@@ -552,7 +565,7 @@
                 <img src="assets/img/personal-activities/logo_socialbread.png" width="150" height="150" alt="EVERY">
               </div>
               <a href="https://www.instagram.com/p/CcULiNftk1e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="stretched-link" target="_blank" rel="noopener noreferrer">
-                <h3>Social Bread</h3>
+                <h3><span style="text-decoration: underline;">Social Bread</span></h3>
               </a>
               <p>本来は廃棄される「コーヒーの出がらし」などを食材として活用し、新たな価値を生み出すフードブランドを自分１人で創立。メイン商品は『ZERO WASTE CHOCOLATE』。乾燥させたコーヒーの出がらしにアーモンドやドライフルーツをミックスし、チョコレートでコーティングしたサステナブルなスイーツ。通信販売やイベント出店などを行った。</br>活動期間：2021.12-2022.5</p>
             </div>
@@ -564,7 +577,7 @@
                 <img src="assets/img/personal-activities/logo_every.jpg" width="150" height="150" alt="EVERY">
               </div>
               <a href="https://www.instagram.com/p/B_RUkPED_0W/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="stretched-link " target="_blank" rel="noopener noreferrer">
-                <h3>EVERY</h3>
+                <h3><span style="text-decoration: underline;">EVERY</span></h3>
               </a>
               <p>スリランカ現地のアーユルヴェーダ医師やホテルのシェフから本場の指導を受けて誕生した、スパイスカレーのブランド。スパイスの効能を活かした本格的なレシピが特長。コロナ禍でケータリングサービスとして展開し、武蔵野市役所や企業へのデリバリーや、イベント出店、テイクアウト販売を行った。</br>活動期間：2020.3-2020.9</p>
             </div>
@@ -576,7 +589,7 @@
                 <img src="assets/img/personal-activities/logo_mad.png" width="150" height="150" alt="MITAKA AREA DESIGN">
               </div>
               <a href="https://www.facebook.com/walkablemitaka/" target="_blank" rel="noopener noreferrer" class="stretched-link">
-                <h3>MITAKA AREA DESIGN</h3>
+                <h3><span style="text-decoration: underline;">MITAKA AREA DESIGN</span></h3>
               </a>
               <p>2020年に有志の任意団体『Walkable Mitaka（ウォーカブル三鷹）』に参加し、2024年10月にNPOミタカエリアデザインとして法人化された際、理事に就任。メンバーは、都市計画系の建築家やデザイナー、三鷹市のキーパーソン、商店会会長、まちづくりの専門家などで構成され、主に三鷹市南口エリアの活性化や開発プロジェクトに取り組んでいます。</br>活動期間：2020- 現在</p>
             </div>
@@ -629,7 +642,7 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="/Portfolio/assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 
