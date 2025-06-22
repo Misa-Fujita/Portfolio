@@ -10,6 +10,7 @@
 # Font & Color Variables
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
+
 /* Fonts */
 :root {
   --default-font: "Lato",  system-ui, -apple-system, "Segoe UI", "Helvetica Neue", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -752,9 +753,10 @@ section,
 }
 
 .portfolio .portfolio-item .portfolio-subtitle {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--heading-color);
+  color: var(---nav-color);
+  opacity: 0.7;
 }
 
 
