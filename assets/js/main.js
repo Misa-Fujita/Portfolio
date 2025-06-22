@@ -1,645 +1,238 @@
-<!DOCTYPE html>
-<html lang="en">
+(function() {
+  "use strict";
 
-<head>
-  <base href="/Portfolio/">
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Misa Fujita Portfolio</title>
-  <meta content="東京を拠点とするGraphic・UI/UXデザイナー、クリエイティブディレクター藤田操のページです" name="description">
-  <meta content="" name="keywords">
+  /**
+   * Header toggle
+   */
+  const headerToggleBtn = document.querySelector('.header-toggle');
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  function headerToggle() {
+    document.querySelector('#header').classList.toggle('header-show');
+    headerToggleBtn.classList.toggle('bi-list');
+    headerToggleBtn.classList.toggle('bi-x');
+  }
+  headerToggleBtn.addEventListener('click', headerToggle);
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  /**
+   * Hide mobile nav on same-page/hash links
+   */
+  document.querySelectorAll('#navmenu a').forEach(navmenu => {
+    navmenu.addEventListener('click', () => {
+      if (document.querySelector('.header-show')) {
+        headerToggle();
+      }
+    });
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  });
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-  
-</head>
+  /**
+   * Toggle mobile nav dropdowns
+   */
+  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+    navmenu.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentNode.classList.toggle('active');
+      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+      e.stopImmediatePropagation();
+    });
+  });
 
-<body class="index-page">
+  /**
+   * Preloader
+   */
+  const preloader = document.querySelector('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove();
+    });
+  }
 
-  <header id="header" class="header d-flex flex-column justify-content-center">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i><span>About</span></a></li>
-        <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Portfolio</span></a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i><span>Resume</span></a></li>
-        <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i><span>Personal</span></a></li>
-        <li><a href="mailto:misafujico@gmail.com"><i class="bi bi-envelope navicon"></i><span>Contact</span></a></li>
-      </ul>
-    </nav>
-  </header>
+  /**
+   * Scroll top button
+   */
+  let scrollTop = document.querySelector('.scroll-top');
 
-  <main class="main">
+  function toggleScrollTop() {
+    if (scrollTop) {
+      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+    }
+  }
+  scrollTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section light-background">
-    
-      <img src="assets/img/hero-bg.jpg" alt="Water painting">
-      
-      <div class="container" data-aos="zoom-out">
-        <div class="row justify-content-center">
-          <div class="col-lg-9">
-            <h2>Misa Fujita</h2>
-            <p>I'm 
-              <span class="typed" data-typed-items="Graphic Designer, UI/UX Designer, Creative Director"></span>
-              <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
-            </p>
-            <div class="social-links">
-              <a href="https://www.facebook.com/misa.fujita.9" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/social.bread_/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.linkedin.com/in/misa-fujita-9b72012aa/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
+  window.addEventListener('load', toggleScrollTop);
+  document.addEventListener('scroll', toggleScrollTop);
 
-      <div class="scrolldown">
-        <span style="color: 333; letter-spacing: 0.2em; font-size: 0.8em;">SCROLL</span>
-      </div>      
+  /**
+   * Animation on scroll function and init
+   */
+  function aosInit() {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }
+  window.addEventListener('load', aosInit);
 
-    </section>
-    <!-- /Hero Section -->
+  /**
+   * Init typed.js
+   */
+  const selectTyped = document.querySelector('.typed');
+  if (selectTyped) {
+    let typed_strings = selectTyped.getAttribute('data-typed-items');
+    typed_strings = typed_strings.split(',');
+    new Typed('.typed', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 80,
+      backSpeed: 20,
+      backDelay: 100,
+    });
+  }
 
-    <!-- About Section -->
-    <section id="about" class="about section">
+  /**
+   * Initiate Pure Counter
+   */
+  new PureCounter();
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>水彩からデッサンまで学んだ10年の美術教育と、進路を決定づけたMacとの出会い。</br>20年以上にわたり、グラフィックデザイナーとして視覚的な導線設計に挑戦し続けています。</p>
-      </div>
-      <!-- End Section Title -->
+  /**
+   * Animate the skills items on reveal
+   */
+  let skillsAnimation = document.querySelectorAll('.skills-animation');
+  skillsAnimation.forEach((item) => {
+    new Waypoint({
+      element: item,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = item.querySelectorAll('.progress .progress-bar');
+        progress.forEach(el => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%';
+        });
+      }
+    });
+  });
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-5 justify-content-center">
-          <div class="col-md-4">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-md-8 content">
-            <h2>自分が幸せを感じながら、次世代の暮らしをつくる</h2>
-            <p class="py-3">『次世代の暮らし』と『自身の幸せ』を両立させること。これはキャリアを通じて確立した私の仕事観です。社会的に意義のあるコンテンツにポジティブなインパクトを持たせ、見た人に行動を起こさせるビジュアルを提供します。
-            </p>
-            <div>
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>1</strong> <span>環境と社会と人に役に立つコンテンツに関わる</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>2</strong> <span>直感的に伝わるデザインの創出する</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>3</strong> <span>ユーザーのバックグラウンドや好みを十分に調査する</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>4</strong> <span>エキスパートからのアドバイスを積極的に受け、一生学び続ける</span></li>
-                </ul>
-            </div>
-          </div>
-        </div>
-      </div>
+  /**
+   * Initiate glightbox
+   */
+  const glightbox = GLightbox({
+    selector: '.glightbox'
+  });
 
-    </section>
-    <!-- /About Section -->
+  /**
+   * Init isotope layout and filters
+   */
+  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
+    let initIsotope;
+    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+        itemSelector: '.isotope-item',
+        layoutMode: layout,
+        filter: filter,
+        sortBy: sort
+      });
+    });
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>できることは着実に、わからないことは真摯に学ぶ。生涯を通じて学びを続けます</p>
-      </div>
-      <!-- End Section Title -->
+    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
+      filters.addEventListener('click', function() {
+        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+        this.classList.add('filter-active');
+        initIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+        if (typeof aosInit === 'function') {
+          aosInit();
+        }
+      }, false);
+    });
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row skills-content skills-animation">
-          <div class="col-lg-6">
+  });
 
-            <!-- Skills Items -->
-            <div class="progress">
-              <span class="skill"><span>Photoshop</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+  /**
+   * Init swiper sliders
+   */
+  function initSwiper() {
+    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+      let config = JSON.parse(
+        swiperElement.querySelector(".swiper-config").innerHTML.trim()
+      );
 
-            <div class="progress">
-              <span class="skill"><span>Figma</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-            
-            <div class="progress">
-              <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+      if (swiperElement.classList.contains("swiper-tab")) {
+        initSwiperWithCustomPagination(swiperElement, config);
+      } else {
+        new Swiper(swiperElement, config);
+      }
+    });
+  }
 
-            <div class="progress">
-              <span class="skill"><span>Creative Direction</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+  window.addEventListener("load", initSwiper);
 
-          </div>
+  /**
+   * Correct scrolling position upon page load for URLs containing hash links.
+   */
+  window.addEventListener('load', function(e) {
+    if (window.location.hash) {
+      if (document.querySelector(window.location.hash)) {
+        setTimeout(() => {
+          let section = document.querySelector(window.location.hash);
+          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+          window.scrollTo({
+            top: section.offsetTop - parseInt(scrollMarginTop),
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
+    }
+  });
 
-          <div class="col-lg-6">
-            
-              <!-- Skills Items -->
-              <div class="progress">
-              <span class="skill"><span>Illustrator</span> <i class="val">100%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              </div>
+  /**
+   * Scroll down indicator
+   */
+  window.addEventListener('scroll', function () {
+  const scrollElement = document.querySelector('.scrolldown');
+  const hero = document.querySelector('#hero');
+  const heroBottom = hero.getBoundingClientRect().bottom;
 
-              <div class="progress">
-              <span class="skill"><span>Adobe XD</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              </div>
+  if (heroBottom < 0) {
+    scrollElement.style.display = 'none';
+  } else {
+    scrollElement.style.display = 'block';
+  }
+  });
 
-              <div class="progress">
-              <span class="skill"><span>CSS</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              </div>
+  /**
+   * Navmenu Scrollspy
+   */
+  let navmenulinks = document.querySelectorAll('.navmenu a');
 
-              <div class="progress">
-              <span class="skill"><span>Team Building</span> <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- /Skills Section -->
+  function navmenuScrollspy() {
+    navmenulinks.forEach(navmenulink => {
+      if (!navmenulink.hash) return;
+      let section = document.querySelector(navmenulink.hash);
+      if (!section) return;
+      let position = window.scrollY + 200;
+      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+        navmenulink.classList.add('active');
+      } else {
+        navmenulink.classList.remove('active');
+      }
+    })
+  }
+  window.addEventListener('load', navmenuScrollspy);
+  document.addEventListener('scroll', navmenuScrollspy);
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
+})();
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Works</h2>
-        <p>これまでの制作事例を紹介します。画像をクリックすると外部リンクの詳細ページにリンクします。</p>
-      </div>
-      <!-- End Section Title -->
 
-      <div class="container">
-
-      <!-- Portfolio Filters & Items Layout -->
-      <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <!-- Filters -->
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active"># All</li>
-            <li data-filter=".filter-cd"># Creative Direction</li>
-            <li data-filter=".filter-gd"># Graphic Design	</li>
-            <li data-filter=".filter-we"># Web & UI Design</li>
-            <!-- <li data-filter=".filter-br"># Branding </li> -->
-            <li data-filter=".filter-sd"># Social Design</li>
-            <li data-filter=".filter-il"># Illustration</li>
-          </ul><!-- End Filters -->
-          
-        <!-- Portfolio Container -->
-        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-            <!-- Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cd">
-              <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">図書文化施設の</br>クリエイティブディレクション</p>
-                <a href="https://jazzy-quiver-6e6.notion.site/Creative-Direction-215c8d16ea388064b9fcdd4723787363" target="_blank">
-                  <img src="assets/img/masonry-portfolio/card01.jpg" class="img-fluid" alt="本のない図書館">
-                  <div class="hover-overlay">
-                    <i class="bi bi-box-arrow-up-right"></i>
-                    <span> 外部リンクへ</span>
-                  </div>
-                </a>
-              </div>
-              <!-- <div class="portfolio-info">
-                <h4># Creative Direction</h4>
-              </div> -->
-              </div>
-            <!-- End Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gd">
-              <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">クラフト酒の</br>ラベルデザイン</p>
-                <a href="https://jazzy-quiver-6e6.notion.site/Graphic-Design-148c8d16ea3880728978f0cfe38ab0ec" target="_blank">
-                  <img src="assets/img/masonry-portfolio/card02.jpg" class="img-fluid" alt="haccoba">
-                  <div class="hover-overlay">
-                    <i class="bi bi-box-arrow-up-right"></i>
-                    <span> 外部リンクへ</span>
-                  </div>
-                </a>
-                <!-- <div class="portfolio-info">
-                  <h4># Graphic Design</h4>
-                </div> -->
-              </div>
-            </div>
-            <!-- End Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-we">
-              <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">アプリーションの</br>チーム開発</p> 
-                <a href="https://jazzy-quiver-6e6.notion.site/Web-UI-Design-1d4c8d16ea3880b7a919f8d98037247e" target="_blank">                
-                  <img src="assets/img/masonry-portfolio/card03.jpg" class="img-fluid" alt="MEntal">
-                  <div class="hover-overlay">
-                    <i class="bi bi-box-arrow-up-right"></i>
-                    <span> 外部リンクへ</span>
-                  </div>
-                </a>
-                <!-- <div class="portfolio-info">
-                  <h4># Web & UI Design</h4>
-                </div> -->
-              </div>
-            </div>
-            <!-- End Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cd filter-br">
-              <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">和食ダイニングの</br>アートディレクション</p>
-                <a href="https://www.notion.so/Branding-141c8d16ea38801c8768e77820c3141e?source=copy_link#217c8d16ea388016b6ebc908067de6f4" target="_blank">
-                  <img src="assets/img/masonry-portfolio/card04.jpg" class="img-fluid" alt="音音">
-                  <div class="hover-overlay">
-                    <i class="bi bi-box-arrow-up-right"></i>
-                    <span> 外部リンクへ</span>
-                  </div>
-                </a>
-                <!-- <div class="portfolio-info">
-                  <h4># Branding # Creative Direction # Graphic Design</h4>
-                </div> -->
-              </div>
-            </div>
-            <!-- End Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-sd">
-              <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">行政と連携する</br>クリエイティブディレクション</p>
-                <a href="https://www.notion.so/Social-Design-178c8d16ea3880fba8e8eda008c147a8" target="_blank">
-                  <img src="assets/img/masonry-portfolio/card05.jpg" class="img-fluid" alt="百年の森">
-                  <div class="hover-overlay">
-                    <i class="bi bi-box-arrow-up-right"></i>
-                    <span> 外部リンクへ</span>
-                  </div>
-                </a>
-                <!-- <div class="portfolio-info">
-                  <h4># Social Design</h4>
-                </div> -->
-              </div>
-            </div>
-            <!-- End Portfolio Item -->
-            <!-- Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-il">
-              <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">イラストレーションや水彩画</p>
-                <a href="https://jazzy-quiver-6e6.notion.site/Illustration-32ca41ed5fff4609a9457cc6c278b54d" target="_blank">
-                  <img src="assets/img/masonry-portfolio/card06.jpg" class="img-fluid" alt="Nikari">
-                  <div class="hover-overlay">
-                    <i class="bi bi-box-arrow-up-right"></i>
-                    <span> 外部リンクへ</span>
-                  </div>
-                  <!-- <div class="portfolio-info">
-                    <h4># Illustration</h4>
-                  </div> -->
-                </a>
-              </div>
-            </div>
-            <!-- End Portfolio Item -->
-            <!-- Portfolio Item -->
-            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-gd">
-              <div class="portfolio-content h-100">
-                <p class="portfolio-subtitle">Graphic Design</p>
-                <a href="https://jazzy-quiver-6e6.notion.site/Graphic-Design-148c8d16ea3880728978f0cfe38ab0ec" target="_blank">
-                  <img src="assets/img/masonry-portfolio/card07.jpg" class="img-fluid" alt="やまなし">
-                  <div class="hover-overlay">
-                      <i class="bi bi-box-arrow-up-right"></i>
-                      <span> 外部リンクへ</span>
-                  </div> -->
-                  <!-- <div class="portfolio-info">
-                    <h4># Graphic Design</h4>
-                  </div> -->
-                <!-- </a>
-              </div> -->
-            <!-- </div> -->
-            <!-- End Portfolio Item -->
-            <!-- Portfolio Item -->
-            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cd filter-gr">
-              <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">Creative Direction</p>
-                <a href="https://www.notion.so/Creative-Direction-215c8d16ea388064b9fcdd4723787363?source=copy_link#215c8d16ea38809fabd7c545bb594359" target="_blank">
-                  <img src="assets/img/masonry-portfolio/card08.jpg" class="img-fluid" alt="SingLoveSong">
-                  <div class="hover-overlay">
-                    <i class="bi bi-box-arrow-up-right"></i>
-                    <span> 外部リンクへ</span>
-                  </div> -->
-                  <!-- <div class="portfolio-info">
-                    <h4># Creative Direction</h4>
-                  </div> -->
-                <!-- </a>
-              </div>
-            </div> -->
-            <!-- End Portfolio Item -->
-            <!-- Portfolio Item -->
-            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-br">
-              <div class="portfolio-content h-100">
-              <p class="portfolio-subtitle">Branding</p>
-                <a href="https://jazzy-quiver-6e6.notion.site/Branding-141c8d16ea38801c8768e77820c3141e" target="_blank">
-                  <img src="assets/img/masonry-portfolio/card09.jpg" class="img-fluid" alt="Kaja">
-                  <div class="hover-overlay">
-                    <i class="bi bi-box-arrow-up-right"></i>
-                    <span> 外部リンクへ</span>
-                  </div> -->
-                  <!-- <div class="portfolio-info">
-                    <h4># Branding</h4>
-                  </div> -->
-                <!-- </a>
-              </div>
-            </div> -->
-            <!-- End Portfolio Item -->
-
-        </div><!-- End Portfolio Container -->
-      </div><!-- End Portfolio Filters & Isotope Items Layout -->
-
-    </section>
-    <!-- End Portfolio Section -->
-
-    
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>食・旅・イベントやワークショップにおけるデザインとディレクションに携わり、</br>現場で感性を磨きながら実績を重ねてきました。</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-        <div class="row  gx-10">
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">基本情報</h3>
-            <div class="resume-item pb-0">
-              <h4>藤田 操｜Misa Fujita</h4>
-              <p>少女時代に培った絵画の基礎、学生時代に学んだアートや哲学の知識、20年以上にわたるデザインの現場、8年間のマネジメント経験から、『人と社会と環境にポジティブなインパクトを与えるデザイン』を生み出すために尽力しています。</p>
-              <ul>
-                <li>神奈川県出身</li>
-                <li>特技：整理整頓、パン作り（カンパーニュ）</li>
-                <li>趣味：学ぶこと、AIと会話、車の運転、英語</li>
-              </ul>
-            </div>
-            <!-- End Resume Item -->
-
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>美術教育</h4>
-              <h5>1976 - 1986</h5>
-              <p><em>溝口美術研究所</em></p>
-              <p>3歳から10年間にわたり指導を受ける。水彩画・油絵・デッサンを実践的に学び、視覚表現の基礎を身につける</p>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>日本文学専攻</h4>
-              <h5>1993 - 1996</h5>
-              <p><em>早稲田大学</em></p>
-              <p>研究テーマは『1920年代パリのカフェ文化と仏文学が日本に与えた影響』。バウハウス、シュールレアリズム、ヌーベル・ヴァーグ、アヴァンギャルド、ミッドセンチュリーモダン、構造主義などを探求。デザイン研究会にて Apple Macintoshとの衝撃的な出会いを経て、デザインの仕事を志すようになる</p>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>デッサンと表現力の強化</h4>
-              <h5>2009 - 2011</h5>
-              <p>セツ・モードセミナー美術科</p>
-              <p>ファッションイラストレーター・エッセイストの長澤節氏が創設した美術学校にて、水彩画・クロッキー・デッサンの指導を受ける。社会人になってデザイナーとしての限界を感じた頃に、もう一度基礎に戻ろうと決意して入学した</p>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>色彩検定１級</h4>
-              <h5>2012</h5>
-              <p><em>文部科学省後援 公益社団法人色彩検定協会</em></p>
-              <p>色彩の理論・心理・光学的特性を含む幅広い知識を習得し、広告・Web・商品企画・空間設計など、あらゆる分野に応用可能な色彩検定1級に合格</p>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>プログラミング学習</h4>
-              <h5>2024.March - September</h5>
-              <p><em>Kredo Online Camp Web Development Course</em></p>
-              <p>PHP / Laravel / Github / Sourcetree / html / css / Javascript / Bootstrap / UI/UXデザイン（Figma）の基礎を終了後、Webアプリのチーム開発においてUIデザインとフロントエンドを担当。授業と開発は全て英語で行われました</p>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>UI/UXデザイン基礎学習</h4>
-              <h5>2024 December</h5>
-              <p><em>Microsoft Fundamentals of UI/UX Design certification</em></p>
-              <p>UI/UXデザインの基礎概念、ワイヤーフレーム・プロトタイプ設計などを英語で学ぶ認定プログラムを修了</p>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>Visual Elements of User Interface Design</h4>
-              <h5>2025 April-</h5>
-              <p><em>California Institute of the Arts</em></p>
-              <p>カリフォルニア芸術大学（CalArts）が提供する、UIデザインの基礎を学ぶオンラインコースを英語で受講中</p>
-            </div>
-            <!-- End Resume Item -->
-
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">職務経歴</h3>
-            <div class="resume-item">
-              <h4>部長補佐 / 事務 / 進行管理 / コンテンツデザイナー</h4>
-              <h5>2022.10 - 現在</h5>
-              <p><a href="https://cuisine-kingdom.com/" target="_blank" rel="noopener noreferrer">株式会社JFLAホールディングス 雑誌『料理王国』編集部 <i class="bi bi-box-arrow-up-right"></a></i></p>
-              <ul>
-                <li>営業資料作成・請求書処理・アンケート集計</li>
-                <li>インスタグラムの運用（2023年1月〜2024年1月）</li>
-                <li>バナー・LPページのデザイン、実装</li>
-                <li>PR TIMES等のプレスリリース発進業務</li>
-              </ul>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>現場責任者 / プロジェクトマネージャー</h4>
-              <h5>2012.9〜2022.1</h5>
-              <p><a href="https://www.musashino.or.jp/place/ " target="_blank" rel="noopener noreferrer">株式会社レセルカーダ｜武蔵野プレイス <i class="bi bi-box-arrow-up-right"></a></i></p>
-              <ul>
-                <li>武蔵野市立武蔵野プレイス（図書文化施設）内の飲食店運営における現場責任者</li>
-                <li>各専門家を招聘したセミナーやワークショップの企画・運営</li>
-                <li>SNSの運用</li>
-                <li>行政との連携業務に参画（動画制作・合同イベント・プレミアグッズ企画デザイン）</li>
-                <li>2017年ファシリティマネジメント大賞において最優秀賞を受賞</li>
-              </ul>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>広報 / Webディレクター / C.I.ディレクター</h4>
-              <h5>2009.9〜2012.8</h5>
-              <p><a href="https://kaja-design.com/" target="_blank" rel="noopener noreferrer">株式会社大熊工業 建築設計事業部 KAJA DESIGN <i class="bi bi-box-arrow-up-right"></a></i></p>
-              <ul>
-                <li>Webディレクション、社内外の制作物を統括するアートディレクター</li>
-                <li>広報業務</li>
-                <li>新築物件見学会の企画・集客・広報・運営</li>
-                <li>インテリア家具販売における商品撮影・ECサイト運営・現場撮影・画像合成</li>
-              </ul>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>グラフィックデザイナー</h4>
-              <h5>2005.1〜2006.1</h5>
-              <p>株式会社ドトールコーヒー本社企画室</p>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>グラフィックデザイナー / アートディレクター</h4>
-              <h5>1996.3〜2004.12</h5>
-              <p><a href="https://www.desc.jp/" target="_blank" rel="noopener noreferrer">有限会社デスク <i class="bi bi-box-arrow-up-right"></a></i></p>
-              <ul>
-                <li>宿泊施設・飲食店におけるSPツールのグラフィックデザイン、アートディレクション</li>
-                <li>Webデザイン</li>
-                <li>Cartier（カルティエ）日本版年間商品カタログの制作チームに参加</li>
-                <li>撮影現場の立ち会い、フォトディレクション</li>
-              </ul>
-            </div>
-            <!-- End Resume Item -->
-
-            <div class="resume-item">
-              <h4>フリーランス</h4>
-              <h5>2006-</h5>
-              <ul>
-                <li>海外旅行カタログの誌面編集 / DTP/ Webデザイン（株式会社エイチ・アイ・エス様）</li>
-                <li>インスタグラムのアートディレクション（株式会社インタツアー様）</li>
-                <li>個人事業主へのコンサルティング（アートディレクション等）</li>
-                <li>Photoshop・Figmaの操作指導（スキル習得支援プラットフォーム『MENTA』にて）</li>
-              </ul>
-            </div>
-            <!-- End Resume Item -->
-
-          </div>
-        </div>
-      </div>
-    </section><!-- /Resume Section -->
-
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Personal Activities</h2>
-        <p>クライアントワークの他に、個人的なプロジェクトや所属しているNPOの活動を紹介します</p>
-      </div><!-- End Section Title -->
-
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item item-cyan position-relative">
-              <div class="icon">
-                <img src="assets/img/personal-activities/logo_socialbread.png" width="150" height="150" alt="EVERY">
-              </div>
-              <a href="https://www.instagram.com/p/CcULiNftk1e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="stretched-link" target="_blank" rel="noopener noreferrer">
-                <h3><span style="text-decoration: underline;">Social Bread</span></h3>
-              </a>
-              <p>本来は廃棄される「コーヒーの出がらし」などを食材として活用し、新たな価値を生み出すフードブランドを自分１人で創立。メイン商品は『ZERO WASTE CHOCOLATE』。乾燥させたコーヒーの出がらしにアーモンドやドライフルーツをミックスし、チョコレートでコーティングしたサステナブルなスイーツ。通信販売やイベント出店などを行った。</br>活動期間：2021.12-2022.5</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item item-orange position-relative">
-              <div class="icon">
-                <img src="assets/img/personal-activities/logo_every.jpg" width="150" height="150" alt="EVERY">
-              </div>
-              <a href="https://www.instagram.com/p/B_RUkPED_0W/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" class="stretched-link " target="_blank" rel="noopener noreferrer">
-                <h3><span style="text-decoration: underline;">EVERY</span></h3>
-              </a>
-              <p>スリランカ現地のアーユルヴェーダ医師やホテルのシェフから本場の指導を受けて誕生した、スパイスカレーのブランド。スパイスの効能を活かした本格的なレシピが特長。コロナ禍でケータリングサービスとして展開し、武蔵野市役所や企業へのデリバリーや、イベント出店、テイクアウト販売を行った。</br>活動期間：2020.3-2020.9</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item item-teal position-relative">
-              <div class="icon">                
-                <img src="assets/img/personal-activities/logo_mad.png" width="150" height="150" alt="MITAKA AREA DESIGN">
-              </div>
-              <a href="https://www.facebook.com/walkablemitaka/" target="_blank" rel="noopener noreferrer" class="stretched-link">
-                <h3><span style="text-decoration: underline;">MITAKA AREA DESIGN</span></h3>
-              </a>
-              <p>2020年に有志の任意団体『Walkable Mitaka（ウォーカブル三鷹）』に参加し、2024年10月にNPOミタカエリアデザインとして法人化された際、理事に就任。メンバーは、都市計画系の建築家やデザイナー、三鷹市のキーパーソン、商店会会長、まちづくりの専門家などで構成され、主に三鷹市南口エリアの活性化や開発プロジェクトに取り組んでいます。</br>活動期間：2020- 現在</p>
-            </div>
-          </div><!-- End Service Item -->
-        </div>
-      </div>
-    </section><!-- /Services Section -->
-  </main>
-
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="container">
-      <h3 class="sitename">Misa Fujita</h3>
-      <p>Development with VS CODE and Github, Designed with Figma</p>
-      <div class="social-links d-flex justify-content-center">
-              <a href="https://www.facebook.com/misa.fujita.9" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/social.bread_/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.linkedin.com/in/misa-fujita-9b72012aa/" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i></a>
-      </div>
-      <div class="container">
-        <div class="copyright">
-          <span>Copyright</span> <strong class="px-1 sitename">Misa Fujita</strong> <span>All Rights Reserved</span>
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distribuited by <a href="https://themewagon.com">ThemeWagon</a> -->
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
-</html>
