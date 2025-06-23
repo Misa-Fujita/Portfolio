@@ -490,7 +490,7 @@ section,
 }
 
 /* 背景切り替え */
-.hero-bg .fade {
+#hero-bg .fade {
   position: absolute;
   top: 0;
   left: 0;
