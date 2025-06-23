@@ -1,3 +1,5 @@
+/* force update check */
+
 (function() {
   "use strict";
 
