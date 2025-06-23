@@ -199,11 +199,15 @@
   });
 
   /**
-   * Scroll down indicator
-   */
-  window.addEventListener('scroll', function () {
+ * Scroll down indicator
+ */
+window.addEventListener('scroll', function () {
   const scrollElement = document.querySelector('.scrolldown');
   const hero = document.querySelector('#hero');
+
+  // nullチェックを追加（どちらかがなければreturn）
+  if (!hero || !scrollElement) return;
+
   const heroBottom = hero.getBoundingClientRect().bottom;
 
   if (heroBottom < 0) {
@@ -211,7 +215,7 @@
   } else {
     scrollElement.style.display = 'block';
   }
-  });
+});
 
   /**
    * Navmenu Scrollspy
