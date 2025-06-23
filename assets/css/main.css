@@ -520,7 +520,7 @@ section,
 }
 
 .hero .text {
-  font-size: 14px;
+  font-size: 0.7em;
 }
 
 .hero .social-links {
@@ -572,8 +572,8 @@ section,
   display: block;
   width: 30px;
   height: 30px;
-  border-right: 2px solid #333;
-  border-bottom: 2px solid #333;
+  border-right: 3px solid #333;
+  border-bottom: 3px solid #333;
   transform: rotate(45deg);
   margin: 6px auto 0;
   animation: bounce 2s infinite;
@@ -590,7 +590,7 @@ section,
 
 @media (max-width: 768px) {
   .hero h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 }
 
