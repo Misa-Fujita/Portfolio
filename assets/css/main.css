@@ -557,9 +557,9 @@ section,
 }
 
 .hero .arrow {
-  width: 30px;      /* ← 大きさ調整 */
+  width: 30px;      /* 大きさ調整 */
   height: 30px;
-  border-right: 3px solid #333;  /* ← 太さ調整 */
+  border-right: 3px solid #333;  /* 太さ調整 */
   border-bottom: 3px solid #333;
   transform: rotate(45deg);
   animation: bounce 2s infinite;
@@ -585,7 +585,7 @@ section,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
+  z-index: 10;
   opacity: 1;
   transition: opacity 1.5s ease-in-out;
 }
