@@ -517,6 +517,10 @@ section,
   border-bottom: 2px solid var(--accent-color);
 }
 
+.hero .text {
+  font-size: 14px;
+}
+
 .hero .social-links {
   margin-top: 25px;
 }
@@ -535,22 +539,41 @@ section,
 }
 
 .hero .scrolldown {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px; /* SCROLLと矢印の間 */
+}
+
+.hero .scroll-text {
+  color: #333;
+  letter-spacing: 0.2em;
+  font-size: 0.8em;
+}
+
+.hero .arrow {
+  width: 30px;      /* ← 大きさ調整 */
+  height: 30px;
+  border-right: 3px solid #333;  /* ← 太さ調整 */
+  border-bottom: 3px solid #333;
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
 }
 
 .hero .scrolldown::after {
   content: '';
   display: block;
-  width: 10px;
-  height: 10px;
+  width: 30px;
+  height: 30px;
   border-right: 2px solid #333;
   border-bottom: 2px solid #333;
   transform: rotate(45deg);
-  margin: 10px auto 0;
+  margin: 6px auto 0;
   animation: bounce 2s infinite;
 }
 
@@ -566,10 +589,6 @@ section,
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 32px;
-  }
-
-  .hero p {
-    font-size: 20px;
   }
 }
 

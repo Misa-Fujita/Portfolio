@@ -218,6 +218,36 @@ window.addEventListener('scroll', function () {
 });
 
   /**
+ * Background slider
+ */
+
+  const images = [
+    'assets/img/hero-bg1.jpg',
+    'assets/img/hero-bg2.jpg',
+    'assets/img/hero-bg3.jpg'
+  ];
+
+let currentIndex = 0;
+  const heroImg = document.getElementById('hero-bg');
+
+  setInterval(() => {
+    // フェードアウト
+    heroImg.classList.add('fade-out');
+
+    setTimeout(() => {
+      // 画像切り替え
+      currentIndex = (currentIndex + 1) % images.length;
+      heroImg.src = images[currentIndex];
+
+      // フェードイン
+      heroImg.classList.remove('fade-out');
+    }, 800); // 0.8秒後に切り替え
+  }, 3500); // 3.5秒ごとにループ
+
+
+
+
+  /**
    * Navmenu Scrollspy
    */
   let navmenulinks = document.querySelectorAll('.navmenu a');
