@@ -1,4 +1,4 @@
-/* force update check 2 */
+/* Modified 20250626 */
 
 (function() {
   "use strict";
@@ -220,7 +220,6 @@ window.addEventListener('scroll', function () {
   /**
  * Background slider
  */
-
   const images = [
     'assets/img/hero-bg1.jpg',
     'assets/img/hero-bg2.jpg',
