@@ -720,6 +720,8 @@ section,
 /*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
+
+/* タグフィルター */
 .portfolio .portfolio-filters {
   padding: 0;
   margin: 0 auto 20px auto;
@@ -762,11 +764,13 @@ section,
   }
 }
 
+/* 各アイテム */
 .portfolio .portfolio-item {
   position: relative;
   overflow: hidden;
 }
 
+/* 各アイテムのタグフィルター文字列 */
 .portfolio .portfolio-item .portfolio-info {
   opacity: 0;
   position: absolute;
