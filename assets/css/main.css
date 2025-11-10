@@ -947,10 +947,21 @@ section,
   box-shadow: 0px 5px 90px 0px rgba(0, 0, 0, 0.1);
   height: 100%;
   padding: 60px 30px;
-  text-align: justify;
-  text-justify: inter-ideograph;
   transition: 0.3s;
   border-radius: 5px;
+}
+
+.portfolio-title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.portfolio-description {
+  text-align: justify;
+  text-justify: inter-ideograph; /* ← 日本語を美しく両端揃えに */
+  line-height: 1.8;
+  letter-spacing: 0.03em;
 }
 
 .services .service-item .icon {
